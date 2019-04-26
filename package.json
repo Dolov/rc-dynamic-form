@@ -1,6 +1,5 @@
 {
-  "name": "rc-dynamic-form",
-  "private": false,
+  "name": "react-dynamic-form",
   "version": "1.0.2",
   "main": "lib/index.js",
   "files": [
