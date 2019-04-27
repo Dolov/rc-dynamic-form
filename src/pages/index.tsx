@@ -7,6 +7,8 @@ import value from './data/value'
 
 export default function() {
   return (
-    <Form />
+    <Form 
+      config={config}
+    />
   );
 }

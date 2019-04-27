@@ -1,49 +1,5 @@
 
-
-
-
-
-
-
-
-
-
-
-// 史上最标准的字段config    非诚勿动
-// 史上最标准的字段config    非诚勿动
-// 史上最标准的字段config    非诚勿动
-// 史上最标准的字段config    非诚勿动
-// 史上最标准的字段config    非诚勿动
-// 史上最标准的字段config    非诚勿动
-// 史上最标准的字段config    非诚勿动
-// 史上最标准的字段config    非诚勿动
-// 史上最标准的字段config    非诚勿动
-// 史上最标准的字段config    非诚勿动
-// 史上最标准的字段config    非诚勿动
-// 史上最标准的字段config    非诚勿动
-// 史上最标准的字段config    非诚勿动
-// 史上最标准的字段config    非诚勿动
-// 史上最标准的字段config    非诚勿动
-// 史上最标准的字段config    非诚勿动
-// 史上最标准的字段config    非诚勿动
-// 史上最标准的字段config    非诚勿动
-// 史上最标准的字段config    非诚勿动
-// 史上最标准的字段config    非诚勿动
-// 史上最标准的字段config    非诚勿动
-// 史上最标准的字段config    非诚勿动
-// 史上最标准的字段config    非诚勿动
-// 史上最标准的字段config    非诚勿动
-// 史上最标准的字段config    非诚勿动
-// 史上最标准的字段config    非诚勿动
-// 史上最标准的字段config    非诚勿动
-// 史上最标准的字段config    非诚勿动
-// 史上最标准的字段config    非诚勿动
-// 史上最标准的字段config    非诚勿动
-// 史上最标准的字段config    非诚勿动
-// 史上最标准的字段config    非诚勿动
-// 史上最标准的字段config    非诚勿动
 export default {
-  standardCollectionId: "2356",
   formLayout: 'vertical', // horizontal  vertical
   groups: [
     {
