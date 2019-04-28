@@ -8,15 +8,8 @@ export default {
         {
           label: 'BOOLEAN(布尔)',
           name: "25",
-          code: 'boolean',
           help: "布尔类型的提示信息",
-          colSpan: 2,
-          columnType: 'BOOLEAN',
-          dataSource: null,
-          pathChain: '2356:25',
-          pathChainStr: "",
-          metaDataId: "2356",
-          customName: 'BOOLEAN(布尔)',
+          editable: true,
           decorator: {
             initialValue: false,
             rules: [{'required': true}],
@@ -27,20 +20,6 @@ export default {
               {value: true, title: 'YES' },
               {value: false, title: 'NO' },
             ],
-            sendRequest: {
-              "layoutUpdate": {"enable": true},
-              "formulaFieldsCalc": {"enable": false},
-              "externalFieldsCalc": {"enable": false},
-            },
-            
-          },
-          meta: {
-            editable: true,
-            notNull: true,
-          },
-          restLayoutMiniInfo: {
-            standardBOId: null,
-            miniPage: false,
           },
         },
       ],
@@ -87,11 +66,7 @@ export default {
           },
         },
 
-        {
-          columnType: 'BLANK',
-          
-        },
-
+        
         {
           label: 'TEXTAREA(多行文本)',
           name: "03",

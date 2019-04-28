@@ -10,8 +10,19 @@ interface group {
   items: Array<any>;
 }
 
+interface fieldItem {
+  name: string;
+  help: string;
+  label: string;
+  editable: boolean;
+}
+
 interface GroupProps {
   items: Array<any>;
+}
+
+interface FieldItemProps {
+  data: fieldItem;
 }
 
 interface FormProps {
@@ -29,5 +40,7 @@ export {
   group,
   config,
   FormProps,
+  fieldItem,
   GroupProps,
+  FieldItemProps,
 }

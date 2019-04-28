@@ -4,9 +4,10 @@ import { Provider } from './Content'
 import { getGroupTitle } from './utils'
 import { FormProps } from './interface'
 import Group from './components/Group'
+
 const { Panel } = Collapse
 
-
+const clsPrefix = 'rc-dynamic-form'
 
 
 class UserForm extends React.PureComponent<FormProps, any> {
@@ -49,15 +50,13 @@ class UserForm extends React.PureComponent<FormProps, any> {
   }
 
   render() {
-    const { config, isView } = this.props
+    const { config, ...otherProps } = this.props
     const { activeKey } = this.state
     const groups = Array.isArray(config.groups) ? config.groups: []
     const formLayout = (typeof config.formLayout === 'string') ? config.formLayout: 'vertical'
     return (
-      <Provider value={{
-        isView,
-      }}>
-        <Form layout={formLayout}>
+      <Provider value={this.props}>
+        <Form layout={formLayout} className={clsPrefix}>
           <Collapse activeKey={activeKey} onChange={this.onCollapseChange}>
             {groups.map((group, index) => {
               const { title, items } = group

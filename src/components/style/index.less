@@ -1,0 +1,32 @@
+@cls-prefix: rc-dynamic-form;
+
+:global {
+  .@{cls-prefix} {
+
+    .form-item {
+      padding: 12px;
+
+      &:hover {
+        background: #f0fdff;
+        .label-tool-icon {
+          color: rgba(0, 0, 0, .85);
+        }
+      }
+    }
+    .label-tools-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .help-icon {
+        margin-left: 4px;
+        transform: translateY(1px);
+      }
+      .label-tool-icon {
+        color: rgba(0, 0, 0, .25);
+        cursor: pointer;
+        font-size: 16px;
+      }
+    }
+  }
+}

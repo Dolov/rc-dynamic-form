@@ -1,7 +1,6 @@
 import React from 'react'
-import { Form, Input } from 'antd'
-import Content from '../Content'
 import { GroupProps } from '../interface'
+import FieldItem from './FieldItem'
 
 export default class Group extends React.PureComponent<GroupProps> {
 
@@ -9,18 +8,8 @@ export default class Group extends React.PureComponent<GroupProps> {
 
   }
 
-
   render() {
     const { items } = this.props
-    return items.map(item => {
-      const { label } = item
-      return (
-        <Form.Item
-          label={label}
-        >
-          <Input />
-        </Form.Item>
-      )
-    })
+    return items.map(item => <FieldItem key={item.name} data={item} />)
   }
 }
