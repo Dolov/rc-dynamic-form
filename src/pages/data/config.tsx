@@ -2,31 +2,9 @@
 export default {
   formLayout: 'vertical', // horizontal  vertical
   groups: [
-    {
-      title: 'boolean',
-      items: [
-        {
-          label: 'BOOLEAN(布尔)',
-          name: "25",
-          help: "布尔类型的提示信息",
-          editable: true,
-          decorator: {
-            initialValue: false,
-            rules: [{'required': true}],
-          },
-          child: {
-            compType: 'BOOLEAN',
-            options: [
-              {value: true, title: 'YES' },
-              {value: false, title: 'NO' },
-            ],
-          },
-        },
-      ],
-    },
 
     {
-      title: '文本',
+      title: '文本类型',
       items: [
         {
           label: 'TEXT(文本)',
@@ -44,11 +22,10 @@ export default {
             options: null,
           },
         },
-
         
         {
           label: 'TEXTAREA(多行文本)',
-          name: "03",
+          name: "02",
           help: null,
           editable: true,
           decorator: {
@@ -63,11 +40,11 @@ export default {
 
         {
           label: 'TELPHON(手机号)',
-          name: "04",
+          name: "03",
           help: null,
           editable: true,
           decorator: {
-            initialValue: '15516507000',
+            initialValue: '15500000000',
             rules: null,
           },
           child: {
@@ -77,54 +54,10 @@ export default {
         },
 
         {
-          label: 'CELLPHONEI18N(国际手机号)',
-          name: "26",
-          help: null,
-          editable: true,
-          decorator: {
-            initialValue: null,
-            rules: null,
-          },
-          child: {
-            compType: 'CELLPHONEI18N',
-            options: null,
-          },
-        },
-
-        {
-          label: 'TELPHONEI18N(国际电话号)',
-          name: "27",
-          help: null,
-          editable: true,
-          decorator: {
-            initialValue: null,
-            rules: null,
-          },
-          child: {
-            compType: 'TELPHONEI18N',
-            options: null,
-          },
-        },
-
-        
-
-
-
-
-        
-
-        {
           label: 'CELLPHONE(固定电话)',
-          name: "05",
-          code: 'cellphone',
+          name: "04",
           help: null,
-          colSpan: 1,
-          columnType: 'CELLPHONE',
-          dataSource: null,
-          pathChain: '2356:05',
-          pathChainStr: "",
-          metaDataId: "2356",
-          customName: 'CELLPHONE(固定电话)',
+          editable: true,
           decorator: {
             initialValue: '0371-5000000',
             rules: null,
@@ -132,151 +65,69 @@ export default {
           child: {
             compType: 'CELLPHONE',
             options: null,
-            sendRequest: {
-              "layoutUpdate": {"enable": false},
-              "formulaFieldsCalc": {"enable": true},
-              "externalFieldsCalc": {"enable": false},
-            },
-          },
-          meta: {
-            editable: true,
-            notNull: true,
-          },
-          restLayoutMiniInfo: {
-            standardBOId: null,
-            miniPage: false,
           },
         },
       ],
     },
 
+
     {
-      title: '带图标链接',
+      title: '链接类型',
       items: [
         {
           label: 'EMAIL(电子邮箱)',
-          name: "02",
-          code: 'email',
+          name: "05",
           help: null,
-          colSpan: 1,
-          columnType: 'EMAIL',
-          dataSource: null,
-          pathChain: '2356:02',
-          pathChainStr: "",
-          metaDataId: "2356",
-          customName: 'EMAIL(电子邮箱)',
+          editable: true,
           decorator: {
-            initialValue: 'songyan_shi@000.com',
+            initialValue: 'songyan_shi@163.com',
             rules: null,
           },
           child: {
             compType: 'EMAIL',
             options: null,
-            sendRequest: {
-              "layoutUpdate": {"enable": false},
-              "formulaFieldsCalc": {"enable": false},
-              "externalFieldsCalc": {"enable": true},
-            },
-          },
-          meta: {
-            editable: true,
-            notNull: true,
-          },
-          restLayoutMiniInfo: {
-            standardBOId: null,
-            miniPage: false,
           },
         },
 
         {
           label: 'URL(网址)',
           name: "06",
-          code: 'url',
           help: null,
-          colSpan: 1,
-          columnType: 'URL',
-          dataSource: null,
-          pathChain: '2356:06',
-          pathChainStr: "",
-          metaDataId: "2356",
-          customName: 'URL(网址)',
+          editable: true,
           decorator: {
-            initialValue: 'http://www.baidu.com?',
+            initialValue: 'https://github.com/Dolov/react-dynamic-form',
             rules: null,
           },
           child: {
             compType: 'URL',
             options: null,
-            sendRequest: {
-              "layoutUpdate": {"enable": false},
-              "formulaFieldsCalc": {"enable": false},
-              "externalFieldsCalc": {"enable": false},
-            },
-          },
-          meta: {
-            editable: true,
-            notNull: true,
-          },
-          restLayoutMiniInfo: {
-            standardBOId: null,
-            miniPage: false,
           },
         },
-
-
       ],
     },
 
     {
-      title: '数字',
+      title: '数字类型',
       items: [
         {
           label: 'DOUBLE(浮点数)',
           name: "07",
-          code: 'double',
           help: null,
-          colSpan: 1,
-          columnType: 'DOUBLE',
-          dataSource: null,
-          pathChain: '2356:07',
-          pathChainStr: "",
-          metaDataId: "2356",
-          customName: 'DOUBLE(浮点数)',
+          editable: true,
           decorator: {
-            initialValue: 0,
+            initialValue: 0.98,
             rules: null,
           },
           child: {
             compType: 'DOUBLE',
             options: null,
-            sendRequest: {
-              "layoutUpdate": {"enable": false},
-              "formulaFieldsCalc": {"enable": false},
-              "externalFieldsCalc": {"enable": false},
-            },
-          },
-          meta: {
-            editable: true,
-            notNull: true,
-          },
-          restLayoutMiniInfo: {
-            standardBOId: null,
-            miniPage: false,
           },
         },
 
         {
           label: 'CURRENCY(货币)',
           name: "08",
-          code: 'currency',
-          help: null,
-          colSpan: 1,
-          columnType: 'CURRENCY',
-          dataSource: null,
-          pathChain: '2356:08',
-          pathChainStr: "",
-          metaDataId: "2356",
-          customName: 'CURRENCY(货币)',
+          editable: true,
           decorator: {
             initialValue: 998000,
             rules: null,
@@ -284,34 +135,14 @@ export default {
           child: {
             compType: 'CURRENCY',
             options: null,
-            sendRequest: {
-              "layoutUpdate": {"enable": false},
-              "formulaFieldsCalc": {"enable": false},
-              "externalFieldsCalc": {"enable": false},
-            },
-          },
-          meta: {
-            editable: true,
-            notNull: true,
-          },
-          restLayoutMiniInfo: {
-            standardBOId: null,
-            miniPage: false,
           },
         },
 
         {
           label: 'PERCENTAGE(百分比)',
           name: "09",
-          code: 'percentage',
           help: null,
-          colSpan: 1,
-          columnType: 'PERCENTAGE',
-          dataSource: null,
-          pathChain: '2356:09',
-          pathChainStr: "",
-          metaDataId: "2356",
-          customName: 'PERCENTAGE(百分比)',
+          editable: true,
           decorator: {
             initialValue: 90.0,
             rules: null,
@@ -319,34 +150,14 @@ export default {
           child: {
             compType: 'PERCENTAGE',
             options: null,
-            sendRequest: {
-              "layoutUpdate": {"enable": false},
-              "formulaFieldsCalc": {"enable": false},
-              "externalFieldsCalc": {"enable": false},
-            },
-          },
-          meta: {
-            editable: true,
-            notNull: true,
-          },
-          restLayoutMiniInfo: {
-            standardBOId: null,
-            miniPage: false,
           },
         },
 
         {
           label: 'INT(整数)',
           name: "10",
-          code: 'int',
           help: null,
-          colSpan: 1,
-          columnType: 'INT',
-          dataSource: null,
-          pathChain: '2356:10',
-          pathChainStr: "",
-          metaDataId: "2356",
-          customName: 'INT(整数)',
+          editable: true,
           decorator: {
             initialValue: 1000,
             rules: null,
@@ -354,19 +165,6 @@ export default {
           child: {
             compType: 'INT',
             options: null,
-            sendRequest: {
-              "layoutUpdate": {"enable": false},
-              "formulaFieldsCalc": {"enable": false},
-              "externalFieldsCalc": {"enable": false},
-            },
-          },
-          meta: {
-            editable: true,
-            notNull: true,
-          },
-          restLayoutMiniInfo: {
-            standardBOId: null,
-            miniPage: false,
           },
         },
       ],
@@ -378,51 +176,23 @@ export default {
         {
           label: 'ENCLOSURE(附件)',
           name: "11",
-          code: 'enclosure',
           help: null,
-          colSpan: 1,
-          columnType: 'ENCLOSURE',
-          dataSource: null,
-          pathChain: '2356:11',
-          pathChainStr: "",
-          metaDataId: "2356",
-          customName: 'ENCLOSURE(附件)',
+          editable: true,
           decorator: {
             initialValue: null,
             rules: null,
           },
           child: {
-            buildQRCode: true,
             compType: 'ENCLOSURE',
             options: null,
-            sendRequest: {
-              "layoutUpdate": {"enable": false},
-              "formulaFieldsCalc": {"enable": false},
-              "externalFieldsCalc": {"enable": false},
-            },
-          },
-          meta: {
-            editable: true,
-            notNull: true,
-          },
-          restLayoutMiniInfo: {
-            standardBOId: null,
-            miniPage: false,
           },
         },
 
         {
           label: 'MAP(地图)',
-          name: "22",
-          code: 'map',
+          name: "12",
           help: null,
-          colSpan: 1,
-          columnType: 'MAP',
-          dataSource: null,
-          pathChain: '2356:22',
-          pathChainStr: "",
-          metaDataId: "2356",
-          customName: 'MAP(地图)',
+          editable: true,
           decorator: {
             initialValue: `{
               "module":"locationPicker",
@@ -436,169 +206,63 @@ export default {
           child: {
             compType: 'MAP',
             options: null,
-            sendRequest: {
-              "layoutUpdate": {"enable": false},
-              "formulaFieldsCalc": {"enable": false},
-              "externalFieldsCalc": {"enable": false},
-            },
-          },
-          meta: {
-            editable: true,
-            notNull: true,
-          },
-          restLayoutMiniInfo: {
-            standardBOId: null,
-            miniPage: false,
           },
         },
 
         {
           label: 'ADDRESS(单选)',
-          name: "23",
-          code: 'address',
+          name: "13",
           help: null,
-          colSpan: 1,
-          columnType: 'ADDRESS',
-          isHidden: false,
-          dataSource: null,
-          pathChain: '2356:23',
-          pathChainStr: "",
-          metaDataId: "2356",
-          customName: 'ADDRESS(单选)',
+          editable: true,
           decorator: {
             initialValue: null,
-            // {
-            //   text: ["山西省", "晋中市", "和顺县", "牛川乡"],
-            //   value: ["14000000", "14040000", "14040400", "140404004"],
-            // },
             rules: null,
           },
           child: {
             compType: 'ADDRESS',
             options: null,
-            sendRequest: {
-              "layoutUpdate": {"enable": false},
-              "formulaFieldsCalc": {"enable": false},
-              "externalFieldsCalc": {"enable": false},
-            },
+            
             addressType: 'RADIO',
             addressShowLevel: 4,
             addressSelectLevel: 4,
           },
-          meta: {
-            editable: true,
-            notNull: true,
-          },
-          restLayoutMiniInfo: {
-            standardBOId: null,
-            miniPage: false,
-          },
+          
         },
 
         {
           label: 'ADDRESS(多选)',
-          name: "24",
-          code: 'address',
+          name: "14",
           help: null,
           colSpan: 1,
-          isHidden: false,
-          columnType: 'ADDRESS',
-          dataSource: null,
-          pathChain: '2356:24',
-          pathChainStr: "",
-          metaDataId: "2356",
-          customName: 'ADDRESS(多选)',
+          editable: true,
           decorator: {
             initialValue: null,
-            // initialValue: {
-            //   text: [
-            //     ["河北省", "保定市", "竞秀区", "保定国家高新区"],
-            //     ["山西省", "长治市", "城区", "长青街道"],
-            //   ],
-            //   value: [
-            //     ['13000000', '13010000', '13010100', '130101001'],
-            //     ['14000000', '14010000', '14010100', '140101001'],
-            //   ],
-            // },
             rules: null,
           },
           child: {
             compType: 'ADDRESS',
             options: null,
-            sendRequest: {
-              "layoutUpdate": {"enable": false},
-              "formulaFieldsCalc": {"enable": false},
-              "externalFieldsCalc": {"enable": false},
-            },
             addressType: 'MULTISELECT',
             addressShowLevel: 4,
             addressSelectLevel: 4,
           },
-          meta: {
-            editable: true,
-            notNull: true,
-          },
-          restLayoutMiniInfo: {
-            standardBOId: null,
-            miniPage: false,
-          },
         },
-        {
-          label: 'ADDRESSI18N(国际地址)',
-          name: "28",
-          code: 'ADDRESSI18N',
-          help: null,
-          colSpan: 1,
-          columnType: 'ADDRESSI18N',
-          dataSource: null,
-          pathChain: '2356:28',
-          pathChainStr: "",
-          metaDataId: "2356",
-          customName: 'ADDRESSI18N(国际地址)',
-          decorator: {
-            initialValue: null,
-            rules: null,
-          },
-          child: {
-            compType: 'ADDRESSI18N',
-            options: null,
-            sendRequest: {
-              "layoutUpdate": {"enable": true},
-              "formulaFieldsCalc": {"enable": false},
-              "externalFieldsCalc": {"enable": false},
-            },
-          },
-          meta: {
-            editable: true,
-            notNull: true,
-          },
-          restLayoutMiniInfo: {
-            standardBOId: null,
-            miniPage: false,
-          },
-        },
+        
       ],
     },
 
     
 
     {
-      title: '主数据',
+      title: '单选多选',
       items: [
         {
           label: 'RADIO(单选列表)',
-          name: "12",
-          code: 'radio',
+          name: "15",
           help: null,
-          colSpan: 1,
-          columnType: 'RADIO',
-          dataSource: null,
-          pathChain: '2356:12',
-          pathChainStr: "",
-          metaDataId: "2356",
-          customName: 'RADIO(单选列表)',
+          editable: true,
           decorator: {
-            initialValue: '0',
+            initialValue: false,
             rules: null,
           },
           child: {
@@ -613,35 +277,14 @@ export default {
                 child: '真的么',
               },
             ],
-            sendRequest: {
-              "layoutUpdate": {"enable": false},
-              "formulaFieldsCalc": {"enable": false},
-              "externalFieldsCalc": {"enable": false},
-            },
-            cascading: true,
-          },
-          meta: {
-            editable: true,
-            notNull: true,
-          },
-          restLayoutMiniInfo: {
-            standardBOId: null,
-            miniPage: false,
           },
         },
 
         {
           label: 'MULTISELECT(多选列表)',
-          name: "13",
-          code: 'multiselect',
+          name: "16",
           help: null,
-          colSpan: 1,
-          columnType: 'MULTISELECT',
-          dataSource: null,
-          pathChain: '2356:13',
-          pathChainStr: "",
-          metaDataId: "2356",
-          customName: 'MULTISELECT(多选列表)',
+          editable: true,
           decorator: {
             initialValue: ['shi', 'cai'],
             rules: null,
@@ -658,34 +301,14 @@ export default {
                 child: '牛魔王',
               },
             ],
-            sendRequest: {
-              "layoutUpdate": {"enable": false},
-              "formulaFieldsCalc": {"enable": false},
-              "externalFieldsCalc": {"enable": false},
-            },
-          },
-          meta: {
-            editable: true,
-            notNull: true,
-          },
-          restLayoutMiniInfo: {
-            standardBOId: null,
-            miniPage: false,
           },
         },
 
         {
           label: 'RADIOTREE(单选树)',
-          name: "14",
-          code: 'radiotree',
+          name: "17",
           help: null,
-          colSpan: 1,
-          columnType: 'RADIOTREE',
-          dataSource: null,
-          pathChain: '2356:14',
-          pathChainStr: "",
-          metaDataId: "2356",
-          customName: 'RADIOTREE(单选树)',
+          editable: true,
           decorator: {
             initialValue: 'shu2',
             rules: null,
@@ -710,34 +333,14 @@ export default {
                 children: [],
               },
             ],
-            sendRequest: {
-              "layoutUpdate": {"enable": false},
-              "formulaFieldsCalc": {"enable": false},
-              "externalFieldsCalc": {"enable": false},
-            },
-          },
-          meta: {
-            editable: true,
-            notNull: true,
-          },
-          restLayoutMiniInfo: {
-            standardBOId: null,
-            miniPage: false,
           },
         },
 
         {
           label: 'MULTISELECTTREE(多选树)',
-          name: "15",
-          code: 'multiselecttree',
+          name: "18",
           help: null,
-          colSpan: 1,
-          columnType: 'MULTISELECTTREE',
-          dataSource: null,
-          pathChain: '2356:15',
-          pathChainStr: "",
-          metaDataId: "2356",
-          customName: 'MULTISELECTTREE(多选树)',
+          
           decorator: {
             initialValue: {
               text: ['旧金山', '美国'],
@@ -779,114 +382,21 @@ export default {
                 ],
               },
             ],
-            sendRequest: {
-              "layoutUpdate": {"enable": false},
-              "formulaFieldsCalc": {"enable": false},
-              "externalFieldsCalc": {"enable": false},
-            },
+            
           },
-          meta: {
-            editable: true,
-            notNull: true,
-          },
-          restLayoutMiniInfo: {
-            standardBOId: null,
-            miniPage: false,
-          },
+          editable: true,
         },
       ],
     },
 
     {
-      title: 'MULTITOONE、IDRELATIONSHIP',
-      items: [
-        {
-          label: 'MULTITOONE(多对一关联)',
-          name: "16",
-          code: 'multitoone',
-          help: null,
-          colSpan: 1,
-          columnType: 'MULTITOONE',
-          dataSource: null,
-          pathChain: '2356:16',
-          pathChainStr: "",
-          metaDataId: "2356",
-          customName: 'MULTITOONE(多对一关联)',
-          decorator: {
-            initialValue: null,
-            rules: null,
-          },
-          child: {
-            compType: 'MULTITOONE',
-            options: null,
-            sendRequest: {
-              "layoutUpdate": {"enable": false},
-              "formulaFieldsCalc": {"enable": false},
-              "externalFieldsCalc": {"enable": false},
-            },
-          },
-          meta: {
-            editable: true,
-            notNull: true,
-          },
-          restLayoutMiniInfo: {
-            standardBOId: null,
-            miniPage: false,
-          },
-        },
-
-        {
-          label: 'IDRELATIONSHIP(一对一关联)',
-          name: "17",
-          code: 'idrelationship',
-          help: null,
-          colSpan: 1,
-          columnType: 'IDRELATIONSHIP',
-          dataSource: null,
-          pathChain: '2356:17',
-          pathChainStr: "",
-          metaDataId: "2356",
-          customName: 'IDRELATIONSHIP(一对一关联)',
-          decorator: {
-            initialValue: null,
-            rules: null,
-          },
-          child: {
-            compType: 'IDRELATIONSHIP',
-            options: null,
-            sendRequest: {
-              "layoutUpdate": {"enable": false},
-              "formulaFieldsCalc": {"enable": false},
-              "externalFieldsCalc": {"enable": false},
-            },
-          },
-          meta: {
-            editable: true,
-            notNull: true,
-          },
-          restLayoutMiniInfo: {
-            standardBOId: null,
-            miniPage: false,
-          },
-        },
-      ],
-    },
-
-    {
-      title: 'time',
+      title: '日期时间类',
       items: [
         {
           label: 'DATE(日期)',
-          name: "18",
-          code: 'date',
+          name: "19",
           help: null,
-          colSpan: 1,
-          columnType: 'DATE',
-          dataSource: null,
-          pathChain: '2356:18',
-          pathChainStr: "",
-          metaDataId: "2356",
-          customName: 'DATE(日期)',
+          editable: true,
           decorator: {
             initialValue: null,
             rules: null,
@@ -894,34 +404,14 @@ export default {
           child: {
             compType: 'DATE',
             options: null,
-            sendRequest: {
-              "layoutUpdate": {"enable": false},
-              "formulaFieldsCalc": {"enable": false},
-              "externalFieldsCalc": {"enable": false},
-            },
-          },
-          meta: {
-            editable: true,
-            notNull: true,
-          },
-          restLayoutMiniInfo: {
-            standardBOId: null,
-            miniPage: false,
           },
         },
 
         {
           label: 'TIMESTAMP(日期时间)',
-          name: "19",
-          code: 'timestamp',
+          name: "20",
           help: null,
-          colSpan: 1,
-          columnType: 'TIMESTAMP',
-          dataSource: null,
-          pathChain: '2356:19',
-          pathChainStr: "",
-          metaDataId: "2356",
-          customName: 'TIMESTAMP(日期时间)',
+          editable: true,
           decorator: {
             initialValue: '2008-05-18',
             rules: null,
@@ -929,95 +419,6 @@ export default {
           child: {
             compType: 'TIMESTAMP',
             options: null,
-            sendRequest: {
-              "layoutUpdate": {"enable": false},
-              "formulaFieldsCalc": {"enable": false},
-              "externalFieldsCalc": {"enable": false},
-            },
-          },
-          meta: {
-            editable: true,
-            notNull: true,
-          },
-          restLayoutMiniInfo: {
-            standardBOId: null,
-            miniPage: false,
-          },
-        },
-      ],
-    },
-
-    {
-      title: '特殊文本字段',
-      items: [
-        {
-          label: 'FORMULA(公式)',
-          name: "20",
-          code: 'formula',
-          help: null,
-          colSpan: 1,
-          columnType: 'FORMULA',
-          dataSource: null,
-          pathChain: '2356:20',
-          pathChainStr: "",
-          metaDataId: "2356",
-          customName: 'FORMULA(公式)',
-          decorator: {
-            initialValue: 0,
-            rules: null,
-          },
-          child: {
-            compType: 'FORMULA',
-            formulaResultType: "TIMESTAMP",
-            options: null,
-            sendRequest: {
-              "layoutUpdate": {"enable": false},
-              "formulaFieldsCalc": {"enable": false},
-              "externalFieldsCalc": {"enable": false},
-            },
-          },
-          meta: {
-            editable: true,
-            notNull: true,
-          },
-          restLayoutMiniInfo: {
-            standardBOId: null,
-            miniPage: false,
-          },
-        },
-
-        {
-          label: 'AUTONUMBER(自增序号)',
-          name: "21",
-          code: 'autonumber',
-          help: null,
-          colSpan: 1,
-          columnType: 'AUTONUMBER',
-          dataSource: null,
-          pathChain: '2356:21',
-          pathChainStr: "",
-          metaDataId: "2356",
-          customName: 'AUTONUMBER(自增序号)',
-          decorator: {
-            initialValue: false,
-            rules: null,
-          },
-          child: {
-            compType: 'AUTONUMBER',
-            options: null,
-            sendRequest: {
-              "layoutUpdate": {"enable": false},
-              "formulaFieldsCalc": {"enable": false},
-              "externalFieldsCalc": {"enable": false},
-            },
-          },
-          meta: {
-            editable: true,
-            notNull: true,
-          },
-          restLayoutMiniInfo: {
-            standardBOId: null,
-            miniPage: false,
           },
         },
       ],
