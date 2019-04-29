@@ -257,8 +257,8 @@ export default {
       title: '单选多选',
       items: [
         {
-          label: 'RADIO(单选列表)',
-          name: "15",
+          label: 'RADIO(单选按钮)',
+          name: "21",
           help: null,
           editable: true,
           decorator: {
@@ -269,12 +269,70 @@ export default {
             compType: 'RADIO',
             options: [
               {
-                value: false,
-                child: '假的么',
+                value: true,
+                label: '男 👱',
               },
               {
-                value: true,
-                child: '真的么',
+                value: false,
+                label: '女 👩',
+              },
+            ],
+          },
+        },
+        {
+          label: 'CHECKBOX(多选按钮)',
+          name: "22",
+          help: null,
+          editable: true,
+          decorator: {
+            initialValue: false,
+            rules: null,
+          },
+          child: {
+            compType: 'CHECKBOX',
+            options: [
+              {
+                value: 'huanggua',
+                label: '黄瓜 🥒',
+              },
+              {
+                value: 'xiangjiao',
+                label: '香蕉 🍌',
+              },
+              {
+                value: 'qiezi',
+                label: '茄子 🍆',
+              },
+              {
+                value: 'huluobo',
+                label: '胡萝卜 🥕',
+              },
+            ],
+          },
+        },
+        {
+          label: 'SELECT(单选列表)',
+          name: "15",
+          help: null,
+          editable: true,
+          decorator: {
+            initialValue: false,
+            rules: null,
+          },
+          child: {
+            compType: 'SELECT',
+            options: [
+              {
+                value: 'F',
+                label: '头等舱 ✈️',
+              },
+              {
+                value: 'C',
+                label: '商务舱 ✈️',
+              },
+              {
+                value: 'Y',
+                label: '经济舱 ✈️',
               },
             ],
           },
@@ -293,19 +351,23 @@ export default {
             compType: 'MULTISELECT',
             options: [
               {
-                value: 'shi',
-                child: '石松岩',
+                value: 'Duck',
+                label: '烤鸭 🦆',
               },
               {
-                value: 'cai',
-                child: '牛魔王',
+                value: 'Chiken',
+                label: '烧鸡 🐔',
+              },
+              {
+                value: 'pig',
+                label: '烤乳猪 🐷',
               },
             ],
           },
         },
 
         {
-          label: 'RADIOTREE(单选树)',
+          label: 'SELECTTREE(单选树)',
           name: "17",
           help: null,
           editable: true,
@@ -314,23 +376,35 @@ export default {
             rules: null,
           },
           child: {
-            compType: 'RADIOTREE',
+            compType: 'SELECTTREE',
             options: [
               {
-                value: 'shu1',
-                title: '树妈妈',
+                value: 'beijing',
+                title: '北京',
                 children: [
                   {
-                    value: 'shu3',
-                    title: '树妈妈1',
-                    children: [],
+                    value: 'chaoyang',
+                    title: '朝阳区',
+                  },
+                  {
+                    value: 'haidian',
+                    title: '海淀区',
                   },
                 ],
               },
               {
-                value: 'shu2',
-                title: '树爸爸🌲',
-                children: [],
+                value: 'suzhou',
+                title: '苏州',
+                children: [
+                  {
+                    value: 'wuzhongqu',
+                    title: '吴中区',
+                  },
+                  {
+                    value: 'gongyeyuanqu',
+                    title: '工业园区',
+                  },
+                ],
               },
             ],
           },
@@ -340,7 +414,7 @@ export default {
           label: 'MULTISELECTTREE(多选树)',
           name: "18",
           help: null,
-          
+          editable: true,
           decorator: {
             initialValue: {
               text: ['旧金山', '美国'],
@@ -352,39 +426,42 @@ export default {
             compType: 'MULTISELECTTREE',
             options: [
               {
-                value: '3902',
-                title: '国家',
-                children: [
-                  {
-                    value: '3903',
-                    title: '美国',
-                    children: [
-                      {
-                        value: '3904',
-                        title: '旧金山',
-                      },
-                    ],
-                  },
-                  {
-                    value: '3905',
-                    title: '中国',
-                    children: [
-                      {
-                        value: '3906',
-                        title: '江苏省',
-                      },
-                      {
-                        value: '3907',
-                        title: '浙江省',
-                      },
-                    ],
-                  },
-                ],
+                value: '01',
+                title: '支付宝事业部负责人',
+                children: [{
+                  value: '01-01',
+                  title: '小王',
+                },{
+                  value: '01-02',
+                  title: '小李',
+                }]
+              },
+              {
+                value: '02',
+                title: '淘宝事业部负责人',
+                children: [{
+                  value: '02-01',
+                  title: '张三',
+                },{
+                  value: '02-02',
+                  title: '赵四',
+                }]
+              },
+              {
+                value: '03',
+                title: 'ClickPaaS 前端研发部负责人',
+                children: [{
+                  value: '03-01',
+                  title: '阿翔',
+                },{
+                  value: '03-02',
+                  title: '阿强',
+                }]
               },
             ],
             
           },
-          editable: true,
+          
         },
       ],
     },
@@ -423,5 +500,53 @@ export default {
         },
       ],
     },
+    {
+      title: "特殊字段",
+      items: [
+        {
+          label: 'RANGE(区间范围)',
+          name: "23",
+          help: null,
+          editable: true,
+          decorator: {
+            initialValue: null,
+            rules: null,
+          },
+          child: {
+            compType: 'RANGE',
+            options: null,
+          },
+        },
+        {
+          label: 'SWITCH(开关)',
+          name: "24",
+          help: null,
+          editable: true,
+          decorator: {
+            initialValue: null,
+            rules: null,
+          },
+          child: {
+            compType: 'SWITCH',
+            options: null,
+          },
+        },
+        {
+          label: 'RATE(评分)',
+          name: "25",
+          help: null,
+          editable: true,
+          decorator: {
+            initialValue: null,
+            rules: null,
+          },
+          child: {
+            compType: 'RATE',
+            options: null,
+          },
+        },
+      ]
+    },
+    
   ],
 }

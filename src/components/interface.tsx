@@ -15,6 +15,7 @@ interface fieldItem {
   help: string;
   label: string;
   editable: boolean;
+  child: child;
 }
 
 interface GroupProps {
@@ -29,10 +30,13 @@ interface DisplayTextProps {
   value: any;
 }
 
+interface child {
+  compType: string;
+  options: Array<any>;
+}
+
 interface ControlProps {
-  child: {
-    compType: string;
-  };
+  child: child;
 }
 
 interface FormProps {
@@ -51,6 +55,7 @@ interface FormProps {
 
 export {
   group,
+  child,
   config,
   FormProps,
   fieldItem,

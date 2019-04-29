@@ -4,7 +4,7 @@ import Form from '../components'
 import '../components/style'
 import config from './data/config'
 import value from './data/value'
-
+import S from './index.less'
 
 export default class Index extends React.PureComponent {
 
@@ -33,17 +33,20 @@ export default class Index extends React.PureComponent {
   render() {
     const { isView, focusId } = this.state
     return (
-      <Form 
-        help
-        editable
-        value={value}
-        isView={isView}
-        config={config}
-        onSave={this.onSave}
-        focusId={focusId}
-        onCancel={this.onCancel}
-        onItemEdit={this.onItemEdit}
-      />
+      <div className={S.wrapper}>
+        <a target="_blank" href="https://github.com/Dolov/react-dynamic-form">github</a>
+        <Form 
+          help
+          editable
+          value={value}
+          isView={isView}
+          config={config}
+          onSave={this.onSave}
+          focusId={focusId}
+          onCancel={this.onCancel}
+          onItemEdit={this.onItemEdit}
+        />
+      </div>
     )
   }
 }
