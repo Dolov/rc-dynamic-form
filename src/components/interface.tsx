@@ -35,8 +35,8 @@ interface child {
   options: Array<any>;
 }
 
-interface ControlProps {
-  child: child;
+interface ControlProps extends child {
+  
 }
 
 interface FormProps {
@@ -50,6 +50,7 @@ interface FormProps {
   onItemEdit: Function;
   onSave: Function;
   onCancel: Function;
+  collapseBordered: boolean;
 }
 
 

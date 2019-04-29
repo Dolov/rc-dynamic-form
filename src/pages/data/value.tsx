@@ -1,50 +1,130 @@
 
 
 export default {
-  '01': {
-    text: 'TEXT',
-    value: 'TEXT',
+  'text': {
+    text: null,
+    value: '但愿人长久，bug 不再有。',
   },
-  '02': {
-    text: 'T↵E↵X↵T↵A↵R↵E↵A',
-    value: 'T↵E↵X↵T↵A↵R↵E↵A',
+  'textarea': {
+    text: null,
+    value: '明月几时有？\n把酒问青天。\n不知天上宫阙，今夕是何年。\n我欲乘风归去，又恐琼楼玉宇，高处不胜寒。\n起舞弄清影，何似在人间。'
   },
-  '03': {
-    text: '15516507061',
+  'telphon': {
+    text: null,
     value: '15516507061',
   },
-  '04': {
-    text: '0371-7654321',
+  'cellphone': {
+    text: null,
     value: '0371-7654321',
   },
-  '05': {
-    text: 'songyan_shi@163.com',
+  'email': {
+    text: null,
     value: 'songyan_shi@163.com',
   },
-  '06': {
-    text: 'https://github.com/',
+  'url': {
+    text: null,
     value: 'https://github.com/',
   },
-  '07': {
-    text: 9.98,
+  'double': {
+    text: null,
     value: 9.98,
   },
-  '08': {
-    text: 998,
+  'currency': {
+    text: null,
     value: 998,
   },
-  '09': {
-    text: 98,
+  'percentage': {
+    text: null,
     value: 98,
   },
-  '10': {
-    text: 1000,
+  'int': {
+    text: null,
     value: 1000,
   },
-  '11': {
+  'enclosure': {
     text: "附件等待支持",
     value: null,
   },
+  'map': {
+    text: "地图等待支持",
+    value: null,
+  },
+  'address1': {
+    text: "地址等待支持",
+    value: null,
+  },
+  'address2': {
+    text: "地址等待支持",
+    value: null,
+  },
+  'radio': {
+    text: "男 👱",
+    value: true,
+  },
+  'checkbox': {
+    text: ['黄瓜 🥒', '香蕉 🍌', '茄子 🍆'],
+    value: ['huanggua', 'xiangjiao', 'qiezi'],
+  },
+  'select': {
+    text: '头等舱 ✈️',
+    value: 'F',
+  },
+  'multiselect': {
+    text: ['烤鸭 🦆', '烧鸡 🐔', '烤乳猪 🐷'],
+    value: ['duck', 'chiken', 'pig'],
+  },
+  'selecttree': {
+    text: '北京',
+    value: 'beijing',
+  },
+  'multiselecttree': {
+    text: ['小王 🦆', '张三 🐔', '阿翔 🐷'],
+    value: ['01-01', '02-01', '03-01'],
+  },
+  'date': {
+    text: null,
+    value: '2019-04-29',
+  },
+  'month': {
+    text: null,
+    value: '2019-04',
+  },
+  'week': {
+    text: null,
+    value: null,
+  },
+  'timestamp': {
+    text: null,
+    value: null,
+  },
+  'daterange': {
+    text: null,
+    value: null,
+  },
+  'range': {
+    text: null,
+    value: null,
+  },
+  'switch': {
+    text: '关',
+    value: false,
+  },
+  'rate': {
+    text: '五颗星',
+    value: 5,
+  },
+
+
+
+
+
+
+
+
+
+
+
+
   '12': {
     text: "吴中区苏州澹台湖大酒店宝带楼东楼南",
     value: `{

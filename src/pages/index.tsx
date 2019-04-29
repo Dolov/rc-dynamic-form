@@ -45,6 +45,7 @@ export default class Index extends React.PureComponent {
           focusId={focusId}
           onCancel={this.onCancel}
           onItemEdit={this.onItemEdit}
+          collapseBordered={false}
         />
       </div>
     )

@@ -8,7 +8,7 @@ export default {
       items: [
         {
           label: 'TEXT(文本)',
-          name: "01",
+          name: "text",
           help: null,
           editable: true,
           decorator: {
@@ -25,7 +25,7 @@ export default {
         
         {
           label: 'TEXTAREA(多行文本)',
-          name: "02",
+          name: "textarea",
           help: null,
           editable: true,
           decorator: {
@@ -40,7 +40,7 @@ export default {
 
         {
           label: 'TELPHON(手机号)',
-          name: "03",
+          name: "telphon",
           help: null,
           editable: true,
           decorator: {
@@ -55,7 +55,7 @@ export default {
 
         {
           label: 'CELLPHONE(固定电话)',
-          name: "04",
+          name: "cellphone",
           help: null,
           editable: true,
           decorator: {
@@ -76,7 +76,7 @@ export default {
       items: [
         {
           label: 'EMAIL(电子邮箱)',
-          name: "05",
+          name: "email",
           help: null,
           editable: true,
           decorator: {
@@ -91,7 +91,7 @@ export default {
 
         {
           label: 'URL(网址)',
-          name: "06",
+          name: "url",
           help: null,
           editable: true,
           decorator: {
@@ -111,7 +111,7 @@ export default {
       items: [
         {
           label: 'DOUBLE(浮点数)',
-          name: "07",
+          name: "double",
           help: null,
           editable: true,
           decorator: {
@@ -126,7 +126,7 @@ export default {
 
         {
           label: 'CURRENCY(货币)',
-          name: "08",
+          name: "currency",
           editable: true,
           decorator: {
             initialValue: 998000,
@@ -140,7 +140,7 @@ export default {
 
         {
           label: 'PERCENTAGE(百分比)',
-          name: "09",
+          name: "percentage",
           help: null,
           editable: true,
           decorator: {
@@ -155,7 +155,7 @@ export default {
 
         {
           label: 'INT(整数)',
-          name: "10",
+          name: "int",
           help: null,
           editable: true,
           decorator: {
@@ -175,7 +175,7 @@ export default {
       items: [
         {
           label: 'ENCLOSURE(附件)',
-          name: "11",
+          name: "enclosure",
           help: null,
           editable: true,
           decorator: {
@@ -190,7 +190,7 @@ export default {
 
         {
           label: 'MAP(地图)',
-          name: "12",
+          name: "map",
           help: null,
           editable: true,
           decorator: {
@@ -211,7 +211,7 @@ export default {
 
         {
           label: 'ADDRESS(单选)',
-          name: "13",
+          name: "address1",
           help: null,
           editable: true,
           decorator: {
@@ -231,7 +231,7 @@ export default {
 
         {
           label: 'ADDRESS(多选)',
-          name: "14",
+          name: "address2",
           help: null,
           colSpan: 1,
           editable: true,
@@ -258,7 +258,7 @@ export default {
       items: [
         {
           label: 'RADIO(单选按钮)',
-          name: "21",
+          name: "radio",
           help: null,
           editable: true,
           decorator: {
@@ -281,7 +281,7 @@ export default {
         },
         {
           label: 'CHECKBOX(多选按钮)',
-          name: "22",
+          name: "checkbox",
           help: null,
           editable: true,
           decorator: {
@@ -312,7 +312,7 @@ export default {
         },
         {
           label: 'SELECT(单选列表)',
-          name: "15",
+          name: "select",
           help: null,
           editable: true,
           decorator: {
@@ -340,7 +340,7 @@ export default {
 
         {
           label: 'MULTISELECT(多选列表)',
-          name: "16",
+          name: "multiselect",
           help: null,
           editable: true,
           decorator: {
@@ -351,11 +351,11 @@ export default {
             compType: 'MULTISELECT',
             options: [
               {
-                value: 'Duck',
+                value: 'duck',
                 label: '烤鸭 🦆',
               },
               {
-                value: 'Chiken',
+                value: 'chiken',
                 label: '烧鸡 🐔',
               },
               {
@@ -368,7 +368,7 @@ export default {
 
         {
           label: 'SELECTTREE(单选树)',
-          name: "17",
+          name: "selecttree",
           help: null,
           editable: true,
           decorator: {
@@ -412,7 +412,7 @@ export default {
 
         {
           label: 'MULTISELECTTREE(多选树)',
-          name: "18",
+          name: "multiselecttree",
           help: null,
           editable: true,
           decorator: {
@@ -470,8 +470,8 @@ export default {
       title: '日期时间类',
       items: [
         {
-          label: 'DATE(日期)',
-          name: "19",
+          label: 'DATE(年月日)',
+          name: "date",
           help: null,
           editable: true,
           decorator: {
@@ -483,10 +483,38 @@ export default {
             options: null,
           },
         },
+        {
+          label: 'MONTH(年月)',
+          name: "month",
+          help: null,
+          editable: true,
+          decorator: {
+            initialValue: null,
+            rules: null,
+          },
+          child: {
+            compType: 'MONTH',
+            options: null,
+          },
+        },
+        {
+          label: 'WEEK(年周)',
+          name: "week",
+          help: null,
+          editable: true,
+          decorator: {
+            initialValue: null,
+            rules: null,
+          },
+          child: {
+            compType: 'WEEK',
+            options: null,
+          },
+        },
 
         {
           label: 'TIMESTAMP(日期时间)',
-          name: "20",
+          name: "timestamp",
           help: null,
           editable: true,
           decorator: {
@@ -498,6 +526,21 @@ export default {
             options: null,
           },
         },
+        {
+          label: 'DATERANGE(日期范围)',
+          name: "daterange",
+          help: null,
+          editable: true,
+          decorator: {
+            initialValue: '2008-05-18',
+            rules: null,
+          },
+          child: {
+            compType: 'DATERANGE',
+            options: null,
+          },
+        },
+        
       ],
     },
     {
@@ -505,7 +548,7 @@ export default {
       items: [
         {
           label: 'RANGE(区间范围)',
-          name: "23",
+          name: "range",
           help: null,
           editable: true,
           decorator: {
@@ -519,7 +562,7 @@ export default {
         },
         {
           label: 'SWITCH(开关)',
-          name: "24",
+          name: "switch",
           help: null,
           editable: true,
           decorator: {
@@ -533,7 +576,7 @@ export default {
         },
         {
           label: 'RATE(评分)',
-          name: "25",
+          name: "rate",
           help: null,
           editable: true,
           decorator: {
@@ -547,6 +590,5 @@ export default {
         },
       ]
     },
-    
   ],
 }

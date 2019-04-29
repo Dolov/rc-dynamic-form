@@ -1,42 +1,46 @@
 import React from 'react'
-import { Input, Icon, Radio, Checkbox, Select, TreeSelect, Slider, Switch, Rate } from 'antd'
-import { ControlProps, child } from '../interface'
-import DisplayText from './DisplayText'
+import { Input, Radio, Checkbox, Select, TreeSelect, Slider, Switch, Rate, DatePicker, InputNumber } from 'antd'
+import { ControlProps } from '../interface'
 import IllegalFieldType from './IllegalFieldType'
+import { handleMomentProps } from '../utils'
 
 const { TextArea } = Input
 const InputGroup = Input.Group
 const RadioGroup = Radio.Group
 const CheckboxGroup = Checkbox.Group
+const { MonthPicker, RangePicker, WeekPicker } = DatePicker
+
+const style = {width:'100%'}
+const defaultOptions: any = []
 
 const Components: any = {
 
-  RADIO(props: child) {
+  RADIO(props: any) {
     const { options, ...otherProps } = props
     return (
       <RadioGroup options={options} {...otherProps} />
     )
   },
 
-  CHECKBOX(props: child) {
+  CHECKBOX(props: ControlProps) {
     const { options, ...otherProps } = props
     return (
       <CheckboxGroup options={options} {...otherProps} />
     )
   },
 
-  SELECT(props: child) {
+  SELECT(props: ControlProps) {
     const { options, ...otherProps } = props
     return (
       <Select {...otherProps}>
         {options.map((option: any) => (
-          <Select.Option value={option.value}>{option.label}</Select.Option>
+          <Select.Option key={option.value} value={option.value}>{option.label}</Select.Option>
         ))}
       </Select>
     )
   },
 
-  MULTISELECT(props: child) {
+  MULTISELECT(props: ControlProps) {
     const { options, ...otherProps } = props
     return (
       <Select
@@ -44,87 +48,139 @@ const Components: any = {
         {...otherProps}
       >
         {options.map((option: any) => (
-          <Select.Option value={option.value}>{option.label}</Select.Option>
+          <Select.Option key={option.value} value={option.value}>{option.label}</Select.Option>
         ))}
       </Select>
     )
   },
 
-  SELECTTREE(props: child) {
+  SELECTTREE(props: ControlProps) {
     const { options, ...otherProps } = props
     return (
       <TreeSelect treeData={options} {...otherProps} />
     )
   },
 
-  MULTISELECTTREE(props: child) {
+  MULTISELECTTREE(props: ControlProps) {
     const { options, ...otherProps } = props
     return (
       <TreeSelect treeCheckable treeData={options} {...otherProps} />
     )
   },
 
-  TEXT(props: child) {
+  TEXT(props: ControlProps) {
     const { options, ...otherProps } = props
     return <Input {...otherProps} />
   },
 
-  TEXTAREA(props: child) {
-    const { options, ...otherProps } = props
-    return <TextArea {...otherProps} />
+  TEXTAREA(props: ControlProps) {
+    return <TextArea autosize {...props} />
   },
 
-  TELPHON(props: child) {
-    const { options, ...otherProps } = props
-    return <Input {...otherProps} />
+  TELPHON(props: ControlProps) {
+    return <Input {...props} />
   },
 
-  CELLPHONE(props: child) {
-    const { options, ...otherProps } = props
+  CELLPHONE(props: ControlProps) {
     return (
-      <InputGroup compact>
+      <InputGroup compact {...props}>
         <Input style={{ width: '40%' }} />
         <Input style={{ width: '60%' }} />
       </InputGroup>
     )
   },
 
-  EMAIL(props: child) {
-    return <Input />
+  EMAIL(props: ControlProps) {
+    return <Input {...props} />
   },
 
-  URL(props: child) {
-    return <Input />
+  URL(props: ControlProps) {
+    return <Input {...props} />
   },
 
-  RANGE(props: child) {
-    const { options, ...otherProps } = props
-    return <Slider range {...otherProps} />
+  RANGE(props: ControlProps) {
+    return <Slider range {...props} />
   },
 
-  SWITCH(props: child) {
-    const { options, ...otherProps } = props
-    return <Switch {...otherProps} />
+  SWITCH(props: ControlProps) {
+    return <Switch {...props} />
   },
 
-  RATE(props: child) {
-    const { options, ...otherProps } = props
-    return <Rate {...otherProps} />
+  RATE(props: ControlProps) {
+    return <Rate {...props} />
+  }, 
+
+  DATE(props: ControlProps) {
+    return <DatePicker style={style} {...handleMomentProps(props)} />
+  },
+
+  TIMESTAMP(props: ControlProps) {
+    return <DatePicker showTime style={style} {...handleMomentProps(props)} />
+  },
+
+  MONTH(props: ControlProps) {
+    return <MonthPicker style={style} {...handleMomentProps(props)} />
+  },
+
+  WEEK(props: ControlProps) {
+    return <WeekPicker style={style} {...handleMomentProps(props)} />
+  },
+
+  DATERANGE(props: ControlProps) {
+    return <RangePicker style={style} {...props} />
+  },
+
+  DOUBLE(props: ControlProps) {
+    return <InputNumber style={style} {...props} />
+  },
+
+  CURRENCY(props: ControlProps) {
+    const { symbol='￥', } = props
+    const reg = new RegExp(`${symbol}\s?|(,*)`, 'g')
+    return (
+      <InputNumber 
+        style={style} 
+        formatter={(value: any) => {
+          if (value) {
+            return `${symbol} ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+          }
+          return value
+        }}
+        // parser={(value: any) => value.replace(reg, '')}
+        {...props} 
+      />
+    )
+  },
+
+  PERCENTAGE(props: ControlProps) {
+    return (
+      <InputNumber 
+        style={style} 
+        formatter={(value: any) => {
+          if (value) {
+            return `${value}%`
+          }
+          return value
+        }}
+        parser={(value: any) => value.replace('%', '')}
+        {...props} 
+      />
+    )
+  },
+
+  INT(props: ControlProps) {
+    return <InputNumber style={style} {...props} />
   }
 }
 
 
 
-const defaultOptions: any = []
+
 export default class Control extends React.PureComponent<ControlProps> {
   
   render() {
-    const { child } = this.props
-    const { compType, ...otherProps } = child
-    const { options }  = child
-    if (!Array.isArray(options)) {
-      child.options = defaultOptions
-    }
+    
+    const { compType, ...otherProps } = this.props
     const Render = Components[compType] ? Components[compType](otherProps): <IllegalFieldType />
     return Render
   }

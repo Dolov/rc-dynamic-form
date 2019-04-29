@@ -12,8 +12,9 @@ export default class DisplayText extends React.PureComponent<DisplayTextProps> {
   render() {
     const { value } = this.props
     const val = isMainLess(value) ? E: `${value}`
+    const formateVal = val.replace(/\n|\r\n|↵/g, "\n")
     return (
-      <div>{val}</div>
+      <div className="display-text">{formateVal}</div>
     )
   }
 }

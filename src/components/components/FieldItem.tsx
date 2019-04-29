@@ -41,11 +41,11 @@ export default class FieldItem extends React.PureComponent<FieldItemProps> {
 
   renderFormItemComponent(data: fieldItem) {
     const { isView } = this.context
-    const { editable } = data
+    const { editable, child } = data
     if (isView || !editable) {
-      return <DisplayText />
+      return <DisplayText {...child} />
     }
-    return <Control {...data} />
+    return <Control {...child} />
   }
 
   static contextType = Content

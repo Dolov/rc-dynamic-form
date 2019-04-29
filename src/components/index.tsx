@@ -20,6 +20,7 @@ class UserForm extends React.PureComponent<FormProps, any> {
     undoable: false,
     onItemEdit: () => {},
     focusId: null,
+    collapseBordered: false,
   }
 
   state = {
@@ -30,9 +31,7 @@ class UserForm extends React.PureComponent<FormProps, any> {
     this.init()
   }
 
-  componentDidUpdate() {
-    console.log('componentDidUpdate')
-  }
+
 
   init() {
     const { value, form: {setFieldsValue} } = this.props
@@ -61,14 +60,14 @@ class UserForm extends React.PureComponent<FormProps, any> {
   }
 
   render() {
-    const { isView, config } = this.props
+    const { isView, config, collapseBordered } = this.props
     const { activeKey } = this.state
     const groups = Array.isArray(config.groups) ? config.groups: []
     const formLayout = (typeof config.formLayout === 'string') ? config.formLayout: 'vertical'
     return (
       <Provider value={this.props}>
         <Form layout={formLayout} className={clsPrefix}>
-          <Collapse defaultActiveKey={getGroupTitle(groups)} onChange={this.onCollapseChange}>
+          <Collapse bordered={collapseBordered} defaultActiveKey={getGroupTitle(groups)} onChange={this.onCollapseChange}>
             {groups.map((group, index) => {
               const { title, items } = group
               return (
