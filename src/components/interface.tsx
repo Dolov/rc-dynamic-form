@@ -25,7 +25,18 @@ interface FieldItemProps {
   data: fieldItem;
 }
 
+interface DisplayTextProps {
+  value: any;
+}
+
+interface ControlProps {
+  child: {
+    compType: string;
+  };
+}
+
 interface FormProps {
+  form: any;
   value: object;
   config: config;
   isView: boolean;
@@ -33,6 +44,8 @@ interface FormProps {
   editable: boolean;
   undoable: boolean;
   onItemEdit: Function;
+  onSave: Function;
+  onCancel: Function;
 }
 
 
@@ -42,5 +55,7 @@ export {
   FormProps,
   fieldItem,
   GroupProps,
+  ControlProps,
   FieldItemProps,
+  DisplayTextProps,
 }

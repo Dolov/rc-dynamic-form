@@ -14,10 +14,19 @@ export default class Index extends React.PureComponent {
   }
 
   onItemEdit = (focusId: string) => {
-    console.log(focusId, 'focusId')
     this.setState({
       isView: false,
       focusId,
+    })
+  }
+
+  onSave = (params: object) => {
+    console.log(params, 'params')
+  }
+
+  onCancel = () => {
+    this.setState({
+      isView: true,
     })
   }
 
@@ -25,11 +34,15 @@ export default class Index extends React.PureComponent {
     const { isView, focusId } = this.state
     return (
       <Form 
+        help
         editable
+        value={value}
         isView={isView}
         config={config}
-        onItemEdit={this.onItemEdit}
+        onSave={this.onSave}
         focusId={focusId}
+        onCancel={this.onCancel}
+        onItemEdit={this.onItemEdit}
       />
     )
   }

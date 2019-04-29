@@ -2,10 +2,18 @@
 
 :global {
   .@{cls-prefix} {
+    .footer-bar {
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      > button {
+        margin-right: 16px;
+      }
+    }
 
     .form-item {
       padding: 12px;
-
       &:hover {
         background: #f0fdff;
         .label-tool-icon {
@@ -13,11 +21,11 @@
         }
       }
     }
+
     .label-tools-wrapper {
       display: flex;
       align-items: center;
       justify-content: space-between;
-
       .help-icon {
         margin-left: 4px;
         transform: translateY(1px);
@@ -26,6 +34,13 @@
         color: rgba(0, 0, 0, .25);
         cursor: pointer;
         font-size: 16px;
+      }
+    }
+
+    .illegal-component {
+      .error {
+        color: red;
+        margin-right: 8px;
       }
     }
   }

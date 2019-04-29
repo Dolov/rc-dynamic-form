@@ -1,15 +1,19 @@
 import React from 'react'
+import { DisplayTextProps } from '../interface'
+import { isMainLess } from '../utils'
 
-
-export default class DisplayText extends React.PureComponent {
+const E = "-"
+export default class DisplayText extends React.PureComponent<DisplayTextProps> {
 
   state = {
 
   }
 
   render() {
+    const { value } = this.props
+    const val = isMainLess(value) ? E: `${value}`
     return (
-      <div>displayText</div>
+      <div>{val}</div>
     )
   }
 }

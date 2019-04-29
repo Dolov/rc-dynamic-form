@@ -1,7 +1,7 @@
 import React from 'react'
 import { Form, Collapse, Button } from 'antd'
 import { Provider } from './Content'
-import { getGroupTitle } from './utils'
+import { getGroupTitle, getViewValues } from './utils'
 import { FormProps } from './interface'
 import Group from './components/Group'
 
@@ -13,6 +13,7 @@ const clsPrefix = 'rc-dynamic-form'
 class UserForm extends React.PureComponent<FormProps, any> {
 
   static defaultProps = {
+    help: false,
     value: {},
     isView: true,
     editable: true,
@@ -26,7 +27,7 @@ class UserForm extends React.PureComponent<FormProps, any> {
   }
 
   componentDidMount() {
-    console.log('componentDidMount')
+    this.init()
   }
 
   componentDidUpdate() {
@@ -34,30 +35,40 @@ class UserForm extends React.PureComponent<FormProps, any> {
   }
 
   init() {
-    
-  }
-
-  onCollapseChange = (activeKey:any) => {
-    this.setState({activeKey})
+    const { value, form: {setFieldsValue} } = this.props
+    const params = getViewValues(value)
+    setFieldsValue(params)
   }
 
   onSave = () => {
-
-    const { form: {validateFieldsAndScroll} } = this.props
-    validateFieldsAndScroll((err, values) => {
-      console.log(err, values, '---')
+    const { onSave, form: {validateFieldsAndScroll}} = this.props
+    if (!onSave || typeof onSave !== 'function') return 
+    validateFieldsAndScroll((err: any, params: object) => {
+      if (err) return 
+      onSave(params)
     })
   }
 
+  onCancel = () => {
+    const { onCancel } = this.props
+    if (onCancel && typeof onCancel === 'function') {
+      onCancel()
+    }
+  }
+
+  onCollapseChange = (activeKey: any) => {
+    this.setState({activeKey})
+  }
+
   render() {
-    const { config, ...otherProps } = this.props
+    const { isView, config } = this.props
     const { activeKey } = this.state
     const groups = Array.isArray(config.groups) ? config.groups: []
     const formLayout = (typeof config.formLayout === 'string') ? config.formLayout: 'vertical'
     return (
       <Provider value={this.props}>
         <Form layout={formLayout} className={clsPrefix}>
-          <Collapse activeKey={activeKey} onChange={this.onCollapseChange}>
+          <Collapse defaultActiveKey={getGroupTitle(groups)} onChange={this.onCollapseChange}>
             {groups.map((group, index) => {
               const { title, items } = group
               return (
@@ -66,8 +77,11 @@ class UserForm extends React.PureComponent<FormProps, any> {
                 </Panel>
               )})}
           </Collapse>
+          {!isView&&(<div className="footer-bar">
+            <Button onClick={this.onCancel}>取消</Button>
+            <Button onClick={this.onSave} type="primary">保存</Button>
+          </div>)}
         </Form>
-        <Button onClick={this.onSave}>保存</Button>
       </Provider>
     )
   }

@@ -31,15 +31,8 @@ export default {
         {
           label: 'TEXT(文本)',
           name: "01",
-          code: 'text',
           help: null,
-          colSpan: 1,
-          columnType: 'TEXT',
-          dataSource: null,
-          pathChain: '2356:01',
-          pathChainStr: "",
-          metaDataId: "2356",
-          customName: 'TEXT(文本)',
+          editable: true,
           decorator: {
             initialValue: 'TEXT(initialValue)',
             rules: [
@@ -47,22 +40,8 @@ export default {
             ],
           },
           child: {
-            buildQRCode: true,
             compType: 'TEXT',
             options: null,
-            sendRequest: {
-              "layoutUpdate": {"enable": false},
-              "formulaFieldsCalc": {"enable": true},
-              "externalFieldsCalc": {"enable": false},
-            },
-          },
-          meta: {
-            editable: true,
-            notNull: true,
-          },
-          restLayoutMiniInfo: {
-            standardBOId: null,
-            miniPage: false,
           },
         },
 
@@ -70,15 +49,8 @@ export default {
         {
           label: 'TEXTAREA(多行文本)',
           name: "03",
-          code: 'textarea',
           help: null,
-          colSpan: 1,
-          columnType: 'TEXTAREA',
-          dataSource: null,
-          pathChain: '2356:03',
-          pathChainStr: "",
-          metaDataId: "2356",
-          customName: 'TEXTAREA(多行文本)',
+          editable: true,
           decorator: {
             initialValue: 'TEXTAREA(initialValue)',
             rules: null,
@@ -86,34 +58,14 @@ export default {
           child: {
             compType: 'TEXTAREA',
             options: null,
-            sendRequest: {
-              "layoutUpdate": {"enable": false},
-              "formulaFieldsCalc": {"enable": false},
-              "externalFieldsCalc": {"enable": true},
-            },
-          },
-          meta: {
-            editable: true,
-            notNull: true,
-          },
-          restLayoutMiniInfo: {
-            standardBOId: null,
-            miniPage: false,
           },
         },
 
         {
           label: 'TELPHON(手机号)',
           name: "04",
-          code: 'telphon',
           help: null,
-          colSpan: 1,
-          columnType: 'TELPHON',
-          dataSource: null,
-          pathChain: '2356:04',
-          pathChainStr: "",
-          metaDataId: "2356",
-          customName: 'TELPHON(手机号)',
+          editable: true,
           decorator: {
             initialValue: '15516507000',
             rules: null,
@@ -121,34 +73,14 @@ export default {
           child: {
             compType: 'TELPHON',
             options: null,
-            sendRequest: {
-              "layoutUpdate": {"enable": true},
-              "formulaFieldsCalc": {"enable": false},
-              "externalFieldsCalc": {"enable": false},
-            },
-          },
-          meta: {
-            editable: true,
-            notNull: true,
-          },
-          restLayoutMiniInfo: {
-            standardBOId: null,
-            miniPage: false,
           },
         },
 
         {
           label: 'CELLPHONEI18N(国际手机号)',
           name: "26",
-          code: 'CELLPHONEI18N',
           help: null,
-          colSpan: 1,
-          columnType: 'CELLPHONEI18N',
-          dataSource: null,
-          pathChain: '2356:26',
-          pathChainStr: "",
-          metaDataId: "2356",
-          customName: 'CELLPHONEI18N(国际手机号)',
+          editable: true,
           decorator: {
             initialValue: null,
             rules: null,
@@ -156,34 +88,14 @@ export default {
           child: {
             compType: 'CELLPHONEI18N',
             options: null,
-            sendRequest: {
-              "layoutUpdate": {"enable": true},
-              "formulaFieldsCalc": {"enable": false},
-              "externalFieldsCalc": {"enable": false},
-            },
-          },
-          meta: {
-            editable: true,
-            notNull: true,
-          },
-          restLayoutMiniInfo: {
-            standardBOId: null,
-            miniPage: false,
           },
         },
 
         {
           label: 'TELPHONEI18N(国际电话号)',
           name: "27",
-          code: 'TELPHONEI18N',
           help: null,
-          colSpan: 1,
-          columnType: 'TELPHONEI18N',
-          dataSource: null,
-          pathChain: '2356:27',
-          pathChainStr: "",
-          metaDataId: "2356",
-          customName: 'TELPHONEI18N(国际电话号)',
+          editable: true,
           decorator: {
             initialValue: null,
             rules: null,
@@ -191,21 +103,13 @@ export default {
           child: {
             compType: 'TELPHONEI18N',
             options: null,
-            sendRequest: {
-              "layoutUpdate": {"enable": true},
-              "formulaFieldsCalc": {"enable": false},
-              "externalFieldsCalc": {"enable": false},
-            },
-          },
-          meta: {
-            editable: true,
-            notNull: true,
-          },
-          restLayoutMiniInfo: {
-            standardBOId: null,
-            miniPage: false,
           },
         },
+
+        
+
+
+
 
         
 

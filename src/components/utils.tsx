@@ -8,3 +8,27 @@ export const getGroupTitle = (groups: Array<group>) => {
   }
   return []
 }
+
+
+export const isMainLess = (value: any) => {
+  if (
+    value === null || 
+    value === undefined ||
+    value === ""
+  ) {
+    return true
+  }
+  return false
+}
+
+
+
+export const getViewValues = (values: any) => {
+  const res: any = {}
+  Object.keys(values).forEach(key => {
+    const value = values[key] || {}
+    const { text: t, value: v } = value
+    res[key] = isMainLess(t) ? v: t
+  })
+  return res
+}
