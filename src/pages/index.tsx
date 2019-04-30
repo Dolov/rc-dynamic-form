@@ -20,6 +20,10 @@ export default class Index extends React.PureComponent {
     })
   }
 
+  componentDidMount() {
+    
+  }
+
   onSave = (params: object) => {
     console.log(params, 'params')
   }

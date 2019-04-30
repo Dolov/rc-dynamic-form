@@ -28,7 +28,12 @@ class UserForm extends React.PureComponent<FormProps, any> {
   }
 
   componentDidMount() {
-    this.setViewValue()
+    const { isView } = this.props
+    if (isView) {
+      this.setViewValue()
+    } else {
+      this.setEditValue()
+    }
   }
 
 
@@ -36,14 +41,12 @@ class UserForm extends React.PureComponent<FormProps, any> {
   setViewValue() {
     const { value, config, form: {setFieldsValue} } = this.props
     const params = getViewValues(value, config)
-    console.log(params, 'view')
     setFieldsValue(params)
   }
 
   setEditValue = () => {
     const { value, config, form: {setFieldsValue} } = this.props
     const params = getEditValues(value, config)
-    console.log(params, 'edit')
     setFieldsValue(params)
   }
 
@@ -59,6 +62,7 @@ class UserForm extends React.PureComponent<FormProps, any> {
   onCancel = () => {
     const { onCancel } = this.props
     if (onCancel && typeof onCancel === 'function') {
+      this.setViewValue()
       onCancel()
     }
   }
