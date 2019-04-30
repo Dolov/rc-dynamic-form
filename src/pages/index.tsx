@@ -2,6 +2,8 @@ import React from 'react';
 import styles from './index.css';
 import Form from '../components'
 import '../components/style'
+// import Form from 'rc-dynamic-form'
+// import 'rc-dynamic-form/lib/style'
 import config from './data/config'
 import value from './data/value'
 import S from './index.less'
