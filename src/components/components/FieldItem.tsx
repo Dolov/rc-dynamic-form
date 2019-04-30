@@ -12,10 +12,11 @@ export default class FieldItem extends React.PureComponent<FieldItemProps> {
 
   }
 
-  onItemEdit = (name: string) => {
+  onItemEdit = (name: string, e: any) => {
     const { onItemEdit, setEditValue } = this.context
     setEditValue()
     onItemEdit(name)
+    e.stopPropagation()
   }
 
   renderFormItemLabel(data: fieldItem) {
@@ -28,7 +29,7 @@ export default class FieldItem extends React.PureComponent<FieldItemProps> {
     )
     const editableJsx = isView&&formEditable&&editable&&(
       <Tooltip title="编辑">
-        <Icon onClick={() => this.onItemEdit(name)} type="edit" className="label-tool-icon" />
+        <Icon onClick={e => this.onItemEdit(name, e)} type="edit" className="label-tool-icon" />
       </Tooltip>
     )
     const helpJsx = help&&formHelp&&(
@@ -60,7 +61,6 @@ export default class FieldItem extends React.PureComponent<FieldItemProps> {
     const { form: {getFieldDecorator} } = this.context
     const { data } = this.props
     const { name } = data
-    console.log('render')
     return (
       <Form.Item
         label={this.renderFormItemLabel(data)}

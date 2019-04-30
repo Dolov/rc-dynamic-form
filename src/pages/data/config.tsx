@@ -52,21 +52,6 @@ export default {
             options: null,
           },
         },
-
-        {
-          label: 'CELLPHONE(固定电话)',
-          name: "cellphone",
-          help: null,
-          editable: true,
-          decorator: {
-            initialValue: '0371-5000000',
-            rules: null,
-          },
-          child: {
-            compType: 'CELLPHONE',
-            options: null,
-          },
-        },
       ],
     },
 
@@ -536,6 +521,7 @@ export default {
             rules: null,
           },
           child: {
+            format: "YYYY-MM-DD HH:mm:ss",
             compType: 'DATERANGE',
             options: null,
           },

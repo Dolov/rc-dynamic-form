@@ -1,7 +1,7 @@
 import React from 'react'
 import { Form, Collapse, Button } from 'antd'
 import { Provider } from './Content'
-import { getGroupTitle, getViewValues, getEditValues } from './utils'
+import { getGroupTitle, getViewValues, getEditValues, formatValues } from './utils'
 import { FormProps } from './interface'
 import Group from './components/Group'
 
@@ -51,11 +51,11 @@ class UserForm extends React.PureComponent<FormProps, any> {
   }
 
   onSave = () => {
-    const { onSave, form: {validateFieldsAndScroll}} = this.props
+    const { onSave, config, form: {validateFieldsAndScroll}} = this.props
     if (!onSave || typeof onSave !== 'function') return 
     validateFieldsAndScroll((err: any, params: object) => {
       if (err) return 
-      onSave(params)
+      onSave(formatValues(params, config))
     })
   }
 

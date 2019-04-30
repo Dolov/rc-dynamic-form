@@ -80,15 +80,6 @@ const Components: any = {
     return <Input {...props} />
   },
 
-  CELLPHONE(props: ControlProps) {
-    return (
-      <InputGroup compact {...props}>
-        <Input style={{ width: '40%' }} />
-        <Input style={{ width: '60%' }} />
-      </InputGroup>
-    )
-  },
-
   EMAIL(props: ControlProps) {
     return <Input {...props} />
   },

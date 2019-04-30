@@ -1,6 +1,7 @@
 import React from 'react'
 import { DisplayTextProps } from '../interface'
-import { isMainLess } from '../utils'
+import { isMainLess, handleLine } from '../utils'
+import Control from './Control'
 
 const E = "-"
 export default class DisplayText extends React.PureComponent<DisplayTextProps> {
@@ -10,11 +11,20 @@ export default class DisplayText extends React.PureComponent<DisplayTextProps> {
   }
 
   render() {
-    const { value } = this.props
-    const val = isMainLess(value) ? E: `${value}`
-    const formateVal = val.replace(/\n|\r\n|↵/g, "\n")
+    const { value, compType } = this.props
+    if (isMainLess(value)) return E
+    if (compType === 'EMAIL') {
+      return <a href={`mailto:${value}`}>{value}</a>
+    }
+    if (compType === 'URL') {
+      return <a target="_blank" rel="noopener noreferrer" href={value}>{value}</a>
+    } 
+    if (compType === 'RATE') {
+      return <Control {...this.props} disabled />
+    }
+    
     return (
-      <div className="display-text">{formateVal}</div>
+      <div className="display-text">{handleLine(`${value}`)}</div>
     )
   }
 }

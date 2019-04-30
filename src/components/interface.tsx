@@ -26,8 +26,9 @@ interface FieldItemProps {
   data: fieldItem;
 }
 
-interface DisplayTextProps {
-  value: any;
+interface DisplayTextProps extends child {
+  value?: any;
+  [propName: string]: any;
 }
 
 interface child {
@@ -36,7 +37,8 @@ interface child {
 }
 
 interface ControlProps extends child {
-  
+  value?: any;
+  [propName: string]: any;
 }
 
 interface FormProps {

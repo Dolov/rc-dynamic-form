@@ -13,10 +13,6 @@ export default {
     text: null,
     value: '15516507061',
   },
-  'cellphone': {
-    text: null,
-    value: '0371-7654321',
-  },
   'email': {
     text: null,
     value: 'songyan_shi@163.com',
@@ -91,27 +87,27 @@ export default {
   },
   'week': {
     text: null,
-    value: null,
+    value: '2019-04-29',
   },
   'timestamp': {
     text: null,
-    value: null,
+    value: '2019-04-30 12:40:54',
   },
   'daterange': {
     text: null,
-    value: null,
+    value: ["2019-04-26 12:59:27", "2019-05-31 12:59:27"],
   },
   'range': {
     text: null,
-    value: null,
+    value: [40, 80],
   },
   'switch': {
     text: '关',
     value: false,
   },
   'rate': {
-    text: '五颗星',
-    value: 5,
+    text: '三颗星',
+    value: 3,
   },
 
 
