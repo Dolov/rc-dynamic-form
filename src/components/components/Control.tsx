@@ -2,7 +2,6 @@ import React from 'react'
 import { Input, Radio, Checkbox, Select, TreeSelect, Slider, Switch, Rate, DatePicker, InputNumber } from 'antd'
 import { ControlProps } from '../interface'
 import IllegalFieldType from './IllegalFieldType'
-import { handleMomentProps } from '../utils'
 
 const { TextArea } = Input
 const InputGroup = Input.Group
@@ -99,7 +98,9 @@ const Components: any = {
   },
 
   RANGE(props: ControlProps) {
-    return <Slider range {...props} />
+    const { value } = props
+    const val = Array.isArray(value) ? value: []
+    return <Slider range {...props} value={val} />
   },
 
   SWITCH(props: ControlProps) {
@@ -111,19 +112,19 @@ const Components: any = {
   }, 
 
   DATE(props: ControlProps) {
-    return <DatePicker style={style} {...handleMomentProps(props)} />
+    return <DatePicker style={style} {...props} />
   },
 
   TIMESTAMP(props: ControlProps) {
-    return <DatePicker showTime style={style} {...handleMomentProps(props)} />
+    return <DatePicker showTime style={style} {...props} />
   },
 
   MONTH(props: ControlProps) {
-    return <MonthPicker style={style} {...handleMomentProps(props)} />
+    return <MonthPicker style={style} {...props} />
   },
 
   WEEK(props: ControlProps) {
-    return <WeekPicker style={style} {...handleMomentProps(props)} />
+    return <WeekPicker style={style} {...props} />
   },
 
   DATERANGE(props: ControlProps) {
@@ -146,7 +147,6 @@ const Components: any = {
           }
           return value
         }}
-        // parser={(value: any) => value.replace(reg, '')}
         {...props} 
       />
     )
@@ -179,7 +179,6 @@ const Components: any = {
 export default class Control extends React.PureComponent<ControlProps> {
   
   render() {
-    
     const { compType, ...otherProps } = this.props
     const Render = Components[compType] ? Components[compType](otherProps): <IllegalFieldType />
     return Render

@@ -25,25 +25,46 @@ export const isMainLess = (value: any) => {
 
 
 
-export const getViewValues = (values: any) => {
+export const getViewValues = (values: any, config: config) => {
   const res: any = {}
-  Object.keys(values).forEach(key => {
-    const value = values[key] || {}
-    const { text: t, value: v } = value
-    const viewVal = isMainLess(t) ? v: t
-    if (viewVal) {
-      res[key] = viewVal
-    }
+  const { groups } = config
+  groups.forEach(group => {
+    const { items } = group
+    items.forEach(item => {
+      const { name } = item
+      const fieldValue = values[name]
+      if (!fieldValue || typeof fieldValue !== 'object') return 
+      const { text, value } = fieldValue
+      if (isMainLess(text)) {
+        res[name] = value
+      } else {
+        res[name] = text
+      }
+    })
   })
   return res
 }
 
 
-export const handleMomentProps = (props: any) => {
-  const { value } = props
-  if (!value) return props
-  if (moment.isMoment(value)) {
-    return props
-  }
-  return Object.assign(props, {value: moment(value)})
+export const getEditValues = (values: any, config: config) => {
+  const momentTyps = ['DATE', 'MONTH', 'WEEK', 'TIMESTAMP', 'DATERANGE']
+  const res: any = {}
+  const { groups } = config
+  groups.forEach(group => {
+    const { items } = group
+    items.forEach(item => {
+      const { name, child: {compType} } = item
+      const fieldValue = values[name]
+      if (!fieldValue || typeof fieldValue !== 'object') return 
+      const { value } = fieldValue
+      if (!isMainLess(value)) {
+        res[name] = value
+        if (momentTyps.includes(compType)) {
+          res[name] = moment(value)
+        }
+      }
+    })
+  })
+  return res
 }
+

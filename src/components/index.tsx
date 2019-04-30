@@ -1,7 +1,7 @@
 import React from 'react'
 import { Form, Collapse, Button } from 'antd'
 import { Provider } from './Content'
-import { getGroupTitle, getViewValues } from './utils'
+import { getGroupTitle, getViewValues, getEditValues } from './utils'
 import { FormProps } from './interface'
 import Group from './components/Group'
 
@@ -24,18 +24,26 @@ class UserForm extends React.PureComponent<FormProps, any> {
   }
 
   state = {
-    activeKey: [],
+
   }
 
   componentDidMount() {
-    this.init()
+    this.setViewValue()
   }
 
 
 
-  init() {
-    const { value, form: {setFieldsValue} } = this.props
-    const params = getViewValues(value)
+  setViewValue() {
+    const { value, config, form: {setFieldsValue} } = this.props
+    const params = getViewValues(value, config)
+    console.log(params, 'view')
+    setFieldsValue(params)
+  }
+
+  setEditValue = () => {
+    const { value, config, form: {setFieldsValue} } = this.props
+    const params = getEditValues(value, config)
+    console.log(params, 'edit')
     setFieldsValue(params)
   }
 
@@ -55,19 +63,15 @@ class UserForm extends React.PureComponent<FormProps, any> {
     }
   }
 
-  onCollapseChange = (activeKey: any) => {
-    this.setState({activeKey})
-  }
-
   render() {
     const { isView, config, collapseBordered } = this.props
-    const { activeKey } = this.state
     const groups = Array.isArray(config.groups) ? config.groups: []
     const formLayout = (typeof config.formLayout === 'string') ? config.formLayout: 'vertical'
+    const defaultActiveKey = getGroupTitle(groups)
     return (
-      <Provider value={this.props}>
+      <Provider value={{...this.props, setEditValue: this.setEditValue}}>
         <Form layout={formLayout} className={clsPrefix}>
-          <Collapse bordered={collapseBordered} defaultActiveKey={getGroupTitle(groups)} onChange={this.onCollapseChange}>
+          <Collapse bordered={collapseBordered} defaultActiveKey={defaultActiveKey}>
             {groups.map((group, index) => {
               const { title, items } = group
               return (
