@@ -38,10 +38,10 @@ export default class Index extends React.PureComponent {
     const { isView, focusId } = this.state
     return (
       <div className={S.wrapper}>
-        <a target="_blank" href="https://github.com/Dolov/react-dynamic-form">github</a>
+        <a target="_blank" href="https://github.com/Dolov/rc-dynamic-form">https://github.com/Dolov/rc-dynamic-form</a>
         <Form 
-          help
-          editable
+          help={true}
+          editable={true}
           value={value}
           isView={isView}
           config={config}
