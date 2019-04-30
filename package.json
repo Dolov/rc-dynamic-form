@@ -7,9 +7,9 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/Dolov/rc-dynamic-chart"
+    "url": "https://github.com/Dolov/rc-dynamic-form"
   },
-  "homepage": "http://example.shisongyan.top/rc-dynamic-chart/",
+  "homepage": "http://example.shisongyan.top/rc-dynamic-form/",
   "scripts": {
     "start": "umi dev",
     "build": "umi build",
