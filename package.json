@@ -5,6 +5,11 @@
   "files": [
     "lib"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Dolov/rc-dynamic-chart"
+  },
+  "homepage": "http://example.shisongyan.top/rc-dynamic-chart/",
   "scripts": {
     "start": "umi dev",
     "build": "umi build",
