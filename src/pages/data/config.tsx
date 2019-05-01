@@ -9,7 +9,7 @@ export default {
         {
           label: 'TEXT(文本)',
           name: "text",
-          help: null,
+          help: '文本帮助信息',
           editable: true,
           decorator: {
             initialValue: 'TEXT(initialValue)',

@@ -95,7 +95,8 @@ const Components: any = {
   },
 
   SWITCH(props: ControlProps) {
-    return <Switch {...props} />
+    const { value, ...otherProps } = props
+    return <Switch {...otherProps} checked={value} />
   },
 
   RATE(props: ControlProps) {

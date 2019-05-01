@@ -19,12 +19,13 @@ export default class DisplayText extends React.PureComponent<DisplayTextProps> {
     if (compType === 'URL') {
       return <a target="_blank" rel="noopener noreferrer" href={value}>{value}</a>
     } 
-    if (compType === 'RATE') {
+    if (compType === 'RATE' || compType === 'SWITCH' || compType === 'RANGE' ) {
       return <Control {...this.props} disabled />
     }
-    
-    return (
-      <div className="display-text">{handleLine(`${value}`)}</div>
-    )
+  
+    if (Array.isArray(value)) {
+      return <div>{value.join("、")}</div>
+    }
+    return <div className="display-text">{handleLine(`${value}`)}</div>
   }
 }

@@ -34,24 +34,28 @@ export const getViewValues = (values: any, config: config) => {
   groups.forEach(group => {
     const { items } = group
     items.forEach(item => {
-      const { name, child: {compType} } = item
+      const { name, child: {compType, options} } = item
       const fieldValue = values[name]
-      if (!fieldValue || typeof fieldValue !== 'object') return 
-      const { text, value } = fieldValue
-      if (isMainLess(text)) {
-        res[name] = value
-      } else {
-        res[name] = text
-      }
-      if (compType === 'RATE') {
-        res[name] = value
-      }
+      if (isMainLess(fieldValue)) {
+        res[name] = null
+        return
+      } 
+      res[name] = fieldValue
       if (compType === 'WEEK') {
-        res[name] = moment(value).format('YYYY-WW')
+        res[name] = moment(fieldValue).format('YYYY-WW')
+        return 
       }
-      if (compType === 'RANGE' || compType === 'DATERANGE') {
-        if (Array.isArray(value) && value.length === 2) {
-          res[name] = value.join(" ~ ")
+      if (compType === 'DATERANGE') {
+        if (Array.isArray(fieldValue) && fieldValue.length === 2) {
+          res[name] = fieldValue.join(" ~ ")
+        }
+        return 
+      }
+      if (Array.isArray(options) && options.length > 0) {
+        if (Array.isArray(fieldValue)) {
+          res[name] = getLabels(fieldValue, options)
+        } else {
+          res[name] = getLabel(fieldValue, options)
         }
       }
     })
@@ -69,18 +73,22 @@ export const getEditValues = (values: any, config: config) => {
     items.forEach(item => {
       const { name, child: {compType} } = item
       const fieldValue = values[name]
-      if (!fieldValue || typeof fieldValue !== 'object') return 
-      const { value } = fieldValue
-      if (!isMainLess(value)) {
-        res[name] = value
-        if (momentTyps.includes(compType)) {
-          res[name] = moment(value)
-        }
-        if (compType === 'DATERANGE' && Array.isArray(value) && value.length === 2) {
-          const start = value[0]
-          const end = value[1]
+      if (isMainLess(fieldValue)) {
+        res[name] = null
+        return 
+      } 
+      res[name] = fieldValue
+      if (momentTyps.includes(compType)) {
+        res[name] = moment(fieldValue)
+      }
+      if (compType === 'DATERANGE') {
+        if (Array.isArray(fieldValue) && fieldValue.length === 2) {
+          const start = fieldValue[0]
+          const end = fieldValue[1]
           const dateRange = [moment(start), moment(end)]
           res[name] = dateRange
+        } else {
+          res[name] = null
         }
       }
     })
@@ -130,4 +138,25 @@ export const formatValues = (values: any, config: config) => {
     }
   })
   return res
+}
+
+
+
+
+const getLabels = (values: Array<any>, options: Array<any>) => values.map(val => getLabel(val, options))
+
+const getLabel: any = (val: any, options: Array<any>) => {
+  for (const option of options) {
+    const { label, title, value, children } = option
+    if (value === val) {
+      return label || title || value
+    }
+    if (Array.isArray(children) && children.length > 0) {
+      const label = getLabel(val, children)
+      if (label) {
+        return label
+      }
+    } 
+  }
+  return null
 }
