@@ -16,10 +16,10 @@ class UserForm extends React.PureComponent<FormProps, any> {
     help: false,
     value: {},
     isView: true,
+    focusId: null,
     editable: true,
     undoable: false,
     onItemEdit: () => {},
-    focusId: null,
     collapseBordered: false,
   }
 
@@ -35,8 +35,6 @@ class UserForm extends React.PureComponent<FormProps, any> {
       this.setEditValue()
     }
   }
-
-
 
   setViewValue() {
     const { value, config, form: {setFieldsValue} } = this.props

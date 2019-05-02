@@ -169,8 +169,11 @@ const Components: any = {
 
 
 export default class Control extends React.PureComponent<ControlProps> {
+
+
   
   render() {
+    
     const { compType, ...otherProps } = this.props
     const Render = Components[compType] ? Components[compType](otherProps): <IllegalFieldType />
     return Render

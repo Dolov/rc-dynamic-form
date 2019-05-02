@@ -1,6 +1,9 @@
 import React from 'react'
 import { Form, Icon, Tooltip } from 'antd'
+import { isEqual } from 'lodash'
+import cls from 'classnames'
 import { FieldItemProps, fieldItem } from '../interface'
+import { getEditValues } from '../utils'
 import Content from '../Content'
 import DisplayText from './DisplayText'
 import Control from './Control'
@@ -9,7 +12,8 @@ import Control from './Control'
 export default class FieldItem extends React.PureComponent<FieldItemProps> {
 
   state = {
-
+    isChanged: false,
+    originalValue: null,
   }
 
   onItemEdit = (name: string, e: any) => {
@@ -19,15 +23,27 @@ export default class FieldItem extends React.PureComponent<FieldItemProps> {
     e.stopPropagation()
   }
 
+  onItemUndo = (name: string) => {
+    const { originalValue } = this.state
+    const { form: {setFieldsValue} } = this.context
+    setFieldsValue({
+      [name]: originalValue,
+    })
+    this.setState({
+      isChanged: false,
+    })
+  }
+
   renderFormItemLabel(data: fieldItem) {
-    const { label, name, help, editable } = data
-    const { isView, editable: formEditable, help: formHelp, undoable } = this.context
-    const undoableJsx = !isView&&undoable&&(
+    const { isChanged } = this.state
+    const { label, name, help, editable: fieldEditable, undoable: fieldUndoable } = data
+    const { isView, editable: editable, help: formHelp, undoable } = this.context
+    const undoableJsx = !isView&&undoable&&fieldUndoable&&isChanged&&(
       <Tooltip title="撤销">
-        <Icon type="undo" className="label-tool-icon" />
+        <Icon onClick={() => this.onItemUndo(name)} type="undo" className="label-tool-icon" />
       </Tooltip>
     )
-    const editableJsx = isView&&formEditable&&editable&&(
+    const editableJsx = isView&&fieldEditable&&editable&&(
       <Tooltip title="编辑">
         <Icon onClick={e => this.onItemEdit(name, e)} type="edit" className="label-tool-icon" />
       </Tooltip>
@@ -46,13 +62,34 @@ export default class FieldItem extends React.PureComponent<FieldItemProps> {
     )
   }
 
+  onChange = (e: any, data: fieldItem) => {
+    const { undoable, config, value } = this.context
+    const { undoable: fieldUndoable, name } = data
+    if (!undoable || !fieldUndoable) return 
+    const params = getEditValues(value, config)
+    const originalValue = params[name]
+    const { target } = e
+    let currentValue = null
+    if (target && typeof target === 'object') {
+      const { value } = target
+      currentValue = value
+    } else {
+      currentValue = e
+    }
+    const isChanged = !isEqual(currentValue, originalValue)
+    this.setState({
+      isChanged,
+      originalValue,
+    })
+  }
+
   renderFormItemComponent(data: fieldItem) {
     const { isView } = this.context
     const { editable, child } = data
     if (isView || !editable) {
       return <DisplayText {...child} />
     }
-    return <Control {...child} />
+    return <Control {...child} onChange={(e: any) => this.onChange(e, data)} />
   }
 
   static contextType = Content
@@ -60,11 +97,12 @@ export default class FieldItem extends React.PureComponent<FieldItemProps> {
   render() {
     const { form: {getFieldDecorator} } = this.context
     const { data } = this.props
+    const { isChanged } = this.state
     const { name } = data
     return (
       <Form.Item
         label={this.renderFormItemLabel(data)}
-        className="form-item"
+        className={cls('form-item', {undoable:isChanged, normal:!isChanged})}
       >
         {getFieldDecorator(name, {
 

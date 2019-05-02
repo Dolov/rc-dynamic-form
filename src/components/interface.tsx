@@ -16,6 +16,7 @@ interface fieldItem {
   label: string;
   editable: boolean;
   child: child;
+  undoable: boolean;
 }
 
 interface GroupProps {

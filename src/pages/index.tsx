@@ -44,6 +44,7 @@ export default class Index extends React.PureComponent {
         <Form 
           help={true}
           editable={true}
+          undoable={true}
           value={value}
           isView={isView}
           config={config}

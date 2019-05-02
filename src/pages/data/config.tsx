@@ -10,6 +10,7 @@ export default {
           label: 'TEXT(文本)',
           name: "text",
           help: '文本帮助信息',
+          undoable: true,
           editable: true,
           decorator: {
             initialValue: 'TEXT(initialValue)',
@@ -27,6 +28,7 @@ export default {
           label: 'TEXTAREA(多行文本)',
           name: "textarea",
           help: null,
+          undoable: true,
           editable: true,
           decorator: {
             initialValue: 'TEXTAREA(initialValue)',
@@ -42,6 +44,7 @@ export default {
           label: 'TELPHON(手机号)',
           name: "telphon",
           help: null,
+          undoable: true,
           editable: true,
           decorator: {
             initialValue: '15500000000',
@@ -63,6 +66,7 @@ export default {
           label: 'EMAIL(电子邮箱)',
           name: "email",
           help: null,
+          undoable: true,
           editable: true,
           decorator: {
             initialValue: 'songyan_shi@163.com',
@@ -78,6 +82,7 @@ export default {
           label: 'URL(网址)',
           name: "url",
           help: null,
+          undoable: true,
           editable: true,
           decorator: {
             initialValue: 'https://github.com/Dolov/react-dynamic-form',
@@ -98,6 +103,7 @@ export default {
           label: 'DOUBLE(浮点数)',
           name: "double",
           help: null,
+          undoable: true,
           editable: true,
           decorator: {
             initialValue: 0.98,
@@ -113,6 +119,7 @@ export default {
           label: 'CURRENCY(货币)',
           name: "currency",
           editable: true,
+          undoable: true,
           decorator: {
             initialValue: 998000,
             rules: null,
@@ -128,6 +135,7 @@ export default {
           name: "percentage",
           help: null,
           editable: true,
+          undoable: true,
           decorator: {
             initialValue: 90.0,
             rules: null,
@@ -143,6 +151,7 @@ export default {
           name: "int",
           help: null,
           editable: true,
+          undoable: true,
           decorator: {
             initialValue: 1000,
             rules: null,
@@ -163,6 +172,7 @@ export default {
           name: "enclosure",
           help: null,
           editable: true,
+          undoable: true,
           decorator: {
             initialValue: null,
             rules: null,
@@ -178,6 +188,7 @@ export default {
           name: "map",
           help: null,
           editable: true,
+          undoable: true,
           decorator: {
             initialValue: `{
               "module":"locationPicker",
@@ -199,6 +210,7 @@ export default {
           name: "address1",
           help: null,
           editable: true,
+          undoable: true,
           decorator: {
             initialValue: null,
             rules: null,
@@ -220,6 +232,7 @@ export default {
           help: null,
           colSpan: 1,
           editable: true,
+          undoable: true,
           decorator: {
             initialValue: null,
             rules: null,
@@ -246,6 +259,7 @@ export default {
           name: "radio",
           help: null,
           editable: true,
+          undoable: true,
           decorator: {
             initialValue: false,
             rules: null,
@@ -269,6 +283,7 @@ export default {
           name: "checkbox",
           help: null,
           editable: true,
+          undoable: true,
           decorator: {
             initialValue: false,
             rules: null,
@@ -299,6 +314,7 @@ export default {
           label: 'SELECT(单选列表)',
           name: "select",
           help: null,
+          undoable: true,
           editable: true,
           decorator: {
             initialValue: false,
@@ -328,6 +344,7 @@ export default {
           name: "multiselect",
           help: null,
           editable: true,
+          undoable: true,
           decorator: {
             initialValue: ['shi', 'cai'],
             rules: null,
@@ -356,6 +373,7 @@ export default {
           name: "selecttree",
           help: null,
           editable: true,
+          undoable: true,
           decorator: {
             initialValue: 'shu2',
             rules: null,
@@ -400,6 +418,7 @@ export default {
           name: "multiselecttree",
           help: null,
           editable: true,
+          undoable: true,
           decorator: {
             initialValue: {
               text: ['旧金山', '美国'],
@@ -459,6 +478,7 @@ export default {
           name: "date",
           help: null,
           editable: true,
+          undoable: true,
           decorator: {
             initialValue: null,
             rules: null,
@@ -473,6 +493,7 @@ export default {
           name: "month",
           help: null,
           editable: true,
+          undoable: true,
           decorator: {
             initialValue: null,
             rules: null,
@@ -487,6 +508,7 @@ export default {
           name: "week",
           help: null,
           editable: true,
+          undoable: true,
           decorator: {
             initialValue: null,
             rules: null,
@@ -502,6 +524,7 @@ export default {
           name: "timestamp",
           help: null,
           editable: true,
+          undoable: true,
           decorator: {
             initialValue: '2008-05-18',
             rules: null,
@@ -516,6 +539,7 @@ export default {
           name: "daterange",
           help: null,
           editable: true,
+          undoable: true,
           decorator: {
             initialValue: '2008-05-18',
             rules: null,
@@ -537,6 +561,7 @@ export default {
           name: "range",
           help: null,
           editable: true,
+          undoable: true,
           decorator: {
             initialValue: null,
             rules: null,
@@ -551,6 +576,7 @@ export default {
           name: "switch",
           help: null,
           editable: true,
+          undoable: true,
           decorator: {
             initialValue: null,
             rules: null,
@@ -565,6 +591,7 @@ export default {
           name: "rate",
           help: null,
           editable: true,
+          undoable: true,
           decorator: {
             initialValue: null,
             rules: null,
