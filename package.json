@@ -14,11 +14,11 @@
     "start": "umi dev",
     "build": "umi build",
     "test": "umi test",
+    "pub ": "sh ./publish.sh",
     "lint:es": "eslint --ext .js src mock tests",
     "lint:ts": "tslint \"src/**/*.ts\" \"src/**/*.tsx\"",
     "precommit": "lint-staged",
-    "babel": "babel ./src/components --out-dir lib --copy-files  --extensions \".ts,.tsx\"",
-    "pub ": "sh ./publish.sh"
+    "babel": "babel ./src/components --out-dir lib --copy-files  --extensions \".ts,.tsx\""
   },
   "dependencies": {
     "antd": "^3.15.0",

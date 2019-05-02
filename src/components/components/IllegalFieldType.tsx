@@ -5,7 +5,7 @@ import { Icon } from 'antd'
 const IllegalFieldType = () => {
   let issue = null
   if (process.env.NODE_ENV === 'development') {
-    issue = <a target="_blank" href="https://github.com/Dolov/react-dynamic-form/issues">issue</a>
+    issue = <a target="_blank" href="https://github.com/Dolov/rc-dynamic-form/issues">issue</a>
   }
 
   return (
