@@ -13,12 +13,12 @@ const clsPrefix = 'rc-dynamic-form'
 class UserForm extends React.PureComponent<FormProps, any> {
 
   static defaultProps = {
-    help: false,
+    help: true,
     value: {},
     isView: true,
     focusId: null,
     editable: true,
-    undoable: false,
+    undoable: true,
     onItemEdit: () => {},
     collapseBordered: false,
   }

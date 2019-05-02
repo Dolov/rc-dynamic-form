@@ -13,7 +13,7 @@ export default {
           undoable: true,
           editable: true,
           decorator: {
-            initialValue: 'TEXT(initialValue)',
+            initialValue: '代码千万行，注释第一行。',
             rules: [
               {required: true, message: '必填'},
             ],

@@ -52,7 +52,7 @@ export default class FieldItem extends React.PureComponent<FieldItemProps> {
       </Tooltip>
     )
     const helpJsx = help&&fieldHelp&&(
-      <Tooltip title={help}>
+      <Tooltip title={fieldHelp}>
         <Icon type="question-circle" className="label-tool-icon help-icon" />
       </Tooltip>
     )
@@ -87,20 +87,20 @@ export default class FieldItem extends React.PureComponent<FieldItemProps> {
   }
 
   renderFormItemComponent() {
-    const { isView } = this.context
+    const { isView, focusId } = this.context
     const { data } = this.props
-    const { editable, child } = data
+    const { editable, child, name } = data
     if (isView || !editable) {
       return <DisplayText {...child} />
     }
-    return <Control {...child} onChange={(e: any) => this.onChange(e, data)} />
+    return <Control {...child} autoFocus={name===focusId} onChange={(e: any) => this.onChange(e, data)} />
   }
 
   static contextType = Content
 
   render() {
-    const { isView, form: {getFieldDecorator}, focusId } = this.context
-    const { data: {name} } = this.props
+    const { isView, form: {getFieldDecorator}} = this.context
+    const { data: {name, decorator: {rules, initialValue}} } = this.props
     const { isChanged } = this.state
     return (
       <Form.Item
@@ -108,7 +108,8 @@ export default class FieldItem extends React.PureComponent<FieldItemProps> {
         className={cls('form-item', {undoable:!isView&&isChanged, normal:!isChanged})}
       >
         {getFieldDecorator(name, {
-
+          rules: !isView&&rules,
+          // initialValue,
         })(
           this.renderFormItemComponent()
         )}

@@ -17,6 +17,10 @@ interface fieldItem {
   editable: boolean;
   child: child;
   undoable: boolean;
+  decorator: {
+    rules: Array<any>;
+    initialValue: any;
+  };
 }
 
 interface GroupProps {
