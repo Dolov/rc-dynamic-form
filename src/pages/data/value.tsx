@@ -11,7 +11,11 @@ export default {
   'percentage': 98,
   'int': 1000,
   'enclosure': '附件等待支持',
-  'map': '地图等待支持',
+  'map': {
+    address: "苏锦街道金狮河沿19号",
+    location: "120.620172,31.299683",
+    name: "苏州市自强服务总社",
+  },
   'address1': '地址等待支持',
   'address2': '地址等待支持',
   'radio': true,

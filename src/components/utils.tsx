@@ -85,8 +85,7 @@ export const getEditValues = (values: any, config: config) => {
         if (Array.isArray(fieldValue) && fieldValue.length === 2) {
           const start = fieldValue[0]
           const end = fieldValue[1]
-          const dateRange = [moment(start), moment(end)]
-          res[name] = dateRange
+          res[name] = [moment(start), moment(end)]
         } else {
           res[name] = null
         }
@@ -133,8 +132,9 @@ export const formatValues = (values: any, config: config) => {
     }
     if (compType === 'DATERANGE' && Array.isArray(fieldValue) && fieldValue.length === 2) {
       const type = format || momentFormatMap.DATERANGE
-      fieldValue[0] = fieldValue[0].format(type)
-      fieldValue[1] = fieldValue[1].format(type)
+      const start = fieldValue[0]
+      const end = fieldValue[1]
+      res[key] = [start.format(type), end.format(type)]
     }
   })
   return res

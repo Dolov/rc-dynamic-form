@@ -2,9 +2,9 @@ import React from 'react'
 import { Input, Radio, Checkbox, Select, TreeSelect, Slider, Switch, Rate, DatePicker, InputNumber } from 'antd'
 import { ControlProps } from '../interface'
 import IllegalFieldType from './IllegalFieldType'
+import SelectMap from './SelectMap'
 
 const { TextArea } = Input
-const InputGroup = Input.Group
 const RadioGroup = Radio.Group
 const CheckboxGroup = Checkbox.Group
 const { MonthPicker, RangePicker, WeekPicker } = DatePicker
@@ -162,6 +162,10 @@ const Components: any = {
 
   INT(props: ControlProps) {
     return <InputNumber style={style} {...props} />
+  }, 
+
+  MAP(props: ControlProps) {
+    return <SelectMap {...props} />
   }
 }
 
