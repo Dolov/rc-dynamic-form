@@ -45,7 +45,7 @@ export default class Index extends React.PureComponent {
           help={true}
           editable={true}
           undoable={true}
-          // value={value}
+          value={value}
           isView={isView}
           config={config}
           onSave={this.onSave}

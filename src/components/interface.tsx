@@ -39,6 +39,7 @@ interface DisplayTextProps extends child {
 interface child {
   compType: string;
   options: Array<any>;
+  amapKey?: string;
 }
 
 interface ControlProps extends child {

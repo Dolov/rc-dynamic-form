@@ -183,27 +183,7 @@ export default {
           },
         },
 
-        {
-          label: 'MAP(地图)',
-          name: "map",
-          help: null,
-          editable: true,
-          undoable: true,
-          decorator: {
-            initialValue: `{
-              "module":"locationPicker",
-              "latlng":{"lat":31.260137610264728,"lng":120.63633643257143},
-              "poiaddress":"江苏省苏州市吴中区太湖东路",
-              "poiname":"吴中区苏州澹台湖大酒店宝带楼东楼南",
-              "cityname":"苏州市"
-            }`,
-            rules: null,
-          },
-          child: {
-            compType: 'MAP',
-            options: null,
-          },
-        },
+        
 
         {
           label: 'ADDRESS(单选)',
@@ -598,6 +578,28 @@ export default {
           },
           child: {
             compType: 'RATE',
+            options: null,
+          },
+        },
+        {
+          label: 'MAP(地图)',
+          name: "map",
+          help: null,
+          editable: true,
+          undoable: true,
+          decorator: {
+            initialValue: `{
+              "module":"locationPicker",
+              "latlng":{"lat":31.260137610264728,"lng":120.63633643257143},
+              "poiaddress":"江苏省苏州市吴中区太湖东路",
+              "poiname":"吴中区苏州澹台湖大酒店宝带楼东楼南",
+              "cityname":"苏州市"
+            }`,
+            rules: null,
+          },
+          child: {
+            amapKey: 'd771766da7b94868c8103d749ba3ead7',
+            compType: 'MAP',
             options: null,
           },
         },

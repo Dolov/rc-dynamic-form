@@ -2,6 +2,7 @@ import React from 'react'
 import { DisplayTextProps } from '../interface'
 import { isMainLess, handleLine } from '../utils'
 import Control from './Control'
+import ViewMap from './ViewMap'
 
 const E = "-"
 export default class DisplayText extends React.PureComponent<DisplayTextProps> {
@@ -21,6 +22,9 @@ export default class DisplayText extends React.PureComponent<DisplayTextProps> {
     } 
     if (compType === 'RATE' || compType === 'SWITCH' || compType === 'RANGE' ) {
       return <Control {...this.props} disabled />
+    }
+    if (compType === 'MAP') {
+      return <ViewMap {...this.props} />
     }
   
     if (Array.isArray(value)) {
