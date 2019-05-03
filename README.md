@@ -45,9 +45,9 @@ import 'rc-dynamic-form/lib/style';
 | help | 关于字段的表述信息 | string | null |
 | editable | 表单是否允许编辑 | boolean | true |
 | undoable | 编辑字段是否允许撤销 | boolean | true |
-| value | 表单字段的值 | object | {} |
+| [value](./src/pages/data/value.tsx) | 表单字段的值 | object | {} |
 | isView | 设置编辑查看状态 | boolean | true |
-| config | 表单字段信息 | object | {} |
+| [config](./src/pages/data/config.tsx) | 表单字段信息 | object | {} |
 | onSave | 保存按钮回调函数 | values => {} | null |
 | focusId | 获取焦点的字段 | string | null |
 | onCancel | 取消按钮的回调 | function | null |
