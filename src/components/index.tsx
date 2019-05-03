@@ -1,7 +1,7 @@
 import React from 'react'
 import { Form, Collapse, Button } from 'antd'
 import { Provider } from './Content'
-import { getGroupTitle, getViewValues, getEditValues, formatValues } from './utils'
+import { getGroupTitle, getViewValues, getEditValues, formatValues, getInstance } from './utils'
 import { FormProps } from './interface'
 import Group from './components/Group'
 
@@ -92,7 +92,9 @@ class UserForm extends React.PureComponent<FormProps, any> {
   }
 }
 
+const getInstanceWrapper = getInstance(UserForm)
+const antdFormCreateWrapper = Form.create({
 
-export default Form.create({
+})(getInstanceWrapper)
 
-})(UserForm)
+export default antdFormCreateWrapper

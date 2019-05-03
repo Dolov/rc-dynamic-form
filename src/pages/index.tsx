@@ -10,6 +10,8 @@ import S from './index.less'
 
 export default class Index extends React.PureComponent {
 
+  instance = null
+
   state = {
     isView: true,
     focusId: null,
@@ -23,7 +25,7 @@ export default class Index extends React.PureComponent {
   }
 
   componentDidMount() {
-    
+    console.log(this.instance)
   }
 
   onSave = (params: object) => {
@@ -53,6 +55,7 @@ export default class Index extends React.PureComponent {
           onCancel={this.onCancel}
           onItemEdit={this.onItemEdit}
           collapseBordered={false}
+          getInstance={(instance:any) => {this.instance=instance}}
         />
       </div>
     )

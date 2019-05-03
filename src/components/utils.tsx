@@ -1,5 +1,6 @@
 
 
+import React from 'react'
 import moment from 'moment'
 import { group } from './interface'
 import { config } from './interface'
@@ -140,6 +141,17 @@ export const formatValues = (values: any, config: config) => {
   })
   return res
 }
+
+
+
+export const getInstance = (WrapperedComponent: any) => {
+  return (props: any) => {
+    const { getInstance, ...otherProps } = props
+    return <WrapperedComponent ref={getInstance} {...otherProps} />
+  } 
+}
+
+
 
 
 
