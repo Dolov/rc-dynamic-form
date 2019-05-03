@@ -10,7 +10,7 @@ export default {
           label: 'TEXT(文本)',
           name: "text",
           help: '文本帮助信息',
-          undoable: true,
+          undoable: false,
           editable: true,
           decorator: {
             initialValue: '代码千万行，注释第一行。',

@@ -68,9 +68,9 @@ export default class FieldItem extends React.PureComponent<FieldItemProps> {
   }
 
   getFieldValueIsChanged() {
-    const { data: {name} } = this.props
+    const { data: {name, undoable: fieldUndoable} } = this.props
     const { undoable, form: {getFieldValue} } = this.context
-    if (!undoable) return false
+    if (!undoable || !fieldUndoable) return false
     const currentValue = getFieldValue(name)
     const originalValue = this.getFieldOriginalValue()
     const isChanged = !isEqual(currentValue, originalValue)
