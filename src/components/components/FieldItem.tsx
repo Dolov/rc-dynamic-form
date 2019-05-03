@@ -12,8 +12,7 @@ import Control from './Control'
 export default class FieldItem extends React.PureComponent<FieldItemProps> {
 
   state = {
-    isChanged: false,
-    originalValue: null,
+
   }
 
   onItemEdit = () => {
@@ -25,21 +24,17 @@ export default class FieldItem extends React.PureComponent<FieldItemProps> {
 
   onItemUndo = () => {
     const { data: {name} } = this.props
-    const { originalValue } = this.state
+    const originalValue = this.getFieldOriginalValue()
     const { form: {setFieldsValue} } = this.context
     setFieldsValue({
       [name]: originalValue,
     })
-    this.setState({
-      isChanged: false,
-    })
-    
   }
 
   renderFormItemLabel() {
     const { data } = this.props
-    const { isChanged } = this.state
     const { label, help: fieldHelp, editable: fieldEditable, undoable: fieldUndoable } = data
+    const isChanged = this.getFieldValueIsChanged()
     const { isView, editable: editable, help, undoable } = this.context
     const undoableJsx = !isView&&undoable&&fieldUndoable&&isChanged&&(
       <Tooltip title="撤销">
@@ -65,25 +60,19 @@ export default class FieldItem extends React.PureComponent<FieldItemProps> {
     )
   }
 
-  onChange = (e: any, data: fieldItem) => {
-    const { undoable, config, value } = this.context
-    const { undoable: fieldUndoable, name } = data
-    if (!undoable || !fieldUndoable) return 
-    const params = getEditValues(value, config)
-    const originalValue = params[name]
-    const { target } = e
-    let currentValue = null
-    if (target && typeof target === 'object') {
-      const { value } = target
-      currentValue = value
-    } else {
-      currentValue = e
-    }
-    const isChanged = !isEqual(currentValue, originalValue)
-    this.setState({
-      isChanged,
-      originalValue,
-    })
+  getFieldOriginalValue() {
+    const { data: {name} } = this.props
+    const { config, value } = this.context
+    const originalValues = getEditValues(value, config)
+    return originalValues[name]
+  }
+
+  getFieldValueIsChanged() {
+    const { data: {name} } = this.props
+    const { form: {getFieldValue} } = this.context
+    const currentValue = getFieldValue(name)
+    const originalValue = this.getFieldOriginalValue()
+    return !isEqual(currentValue, originalValue)
   }
 
   renderFormItemComponent() {
@@ -93,15 +82,15 @@ export default class FieldItem extends React.PureComponent<FieldItemProps> {
     if (isView || !editable) {
       return <DisplayText {...child} />
     }
-    return <Control {...child} autoFocus={name===focusId} onChange={(e: any) => this.onChange(e, data)} />
+    return <Control {...child} autoFocus={name===focusId} />
   }
 
   static contextType = Content
 
   render() {
     const { isView, form: {getFieldDecorator}} = this.context
-    const { data: {name, decorator: {rules, initialValue}} } = this.props
-    const { isChanged } = this.state
+    const { data: {name, decorator: {rules}} } = this.props
+    const isChanged = this.getFieldValueIsChanged()
     return (
       <Form.Item
         label={this.renderFormItemLabel()}
@@ -109,7 +98,6 @@ export default class FieldItem extends React.PureComponent<FieldItemProps> {
       >
         {getFieldDecorator(name, {
           rules: !isView&&rules,
-          // initialValue,
         })(
           this.renderFormItemComponent()
         )}
