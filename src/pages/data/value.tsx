@@ -16,6 +16,7 @@ export default {
     location: "120.620172,31.299683",
     name: "苏州市自强服务总社",
   },
+  'cascader': ["zhejiang", "hangzhou", "xihu"],
   'address1': '地址等待支持',
   'address2': '地址等待支持',
   'radio': true,
@@ -24,6 +25,7 @@ export default {
   'multiselect': ['duck', 'chiken', 'pig'],
   'selecttree': 'beijing',
   'multiselecttree': ['01-01', '02-01', '03-01'],
+  'timepicker': '2019-05-03 12:12:12',
   'date': '2019-04-29',
   'month': '2019-04',
   'week': '2019-04-29',
@@ -33,57 +35,4 @@ export default {
   'switch': true,
   'rate': 3,
 
-
-
-
-
-
-
-
-
-
-
-
-  '12': {
-    text: "吴中区苏州澹台湖大酒店宝带楼东楼南",
-    value: `{
-      "module":"locationPicker",
-      "latlng":{"lat":31.260137610264728,"lng":120.63633643257143},
-      "poiaddress":"江苏省苏州市吴中区太湖东路",
-      "poiname":"吴中区苏州澹台湖大酒店宝带楼东楼南",
-      "cityname":"苏州市"
-    }`,  
-  },
-  '13': {
-    text: "地址选择等待支持",
-    value: null,
-  },
-  '14': {
-    text: "地址选择等待支持",
-    value: null,
-  },
-  '15': {
-    text: "假的吧",
-    value: false,
-  },
-  '16': {
-    text: ['石松岩', '牛魔王'],
-    value: ['shi', 'cai'],
-  },
-  '17': {
-    text: '树妈妈',
-    value: 'shu1',
-  },
-  '18': {
-    text: ['旧金山', '美国'],
-    value: ['3904', '3903'],
-  },
-  '19': {
-    text: '2008-05-18',
-    value: '2008-05-18',
-  },
-  '20': {
-    text: '2008-05-18 12:12:12',
-    value: '2008-05-18 12:12:12',
-  },
 }

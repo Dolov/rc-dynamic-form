@@ -1,5 +1,5 @@
 import React from 'react'
-import { Input, Radio, Checkbox, Select, TreeSelect, Slider, Switch, Rate, DatePicker, InputNumber } from 'antd'
+import { Input, Radio, Checkbox, Select, TreeSelect, Slider, Switch, Rate, DatePicker, InputNumber, Cascader, TimePicker } from 'antd'
 import { ControlProps } from '../interface'
 import IllegalFieldType from './IllegalFieldType'
 import SelectMap from './SelectMap'
@@ -166,6 +166,14 @@ const Components: any = {
 
   MAP(props: ControlProps) {
     return <SelectMap {...props} />
+  },
+
+  CASCADER(props: ControlProps) {
+    return <Cascader {...props} />
+  },
+
+  TIMEPICKER(props: ControlProps) {
+    return <TimePicker style={style} {...props} />
   }
 }
 

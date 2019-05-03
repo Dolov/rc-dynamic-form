@@ -63,7 +63,7 @@ export const getViewValues = (values: any, config: config) => {
   return res
 }
 
-const momentTyps = ['DATE', 'MONTH', 'WEEK', 'TIMESTAMP']
+const momentTyps = ['DATE', 'MONTH', 'WEEK', 'TIMESTAMP', 'TIMEPICKER']
 export const getEditValues = (values: any, config: config) => {
   
   const res: any = {}
@@ -115,6 +115,7 @@ const momentFormatMap: any = {
   'WEEK': 'YYYY-MM-DD',
   'TIMESTAMP': 'YYYY-MM-DD HH:mm:ss',
   'DATERANGE': 'YYYY-MM-DD',
+  'TIMEPICKER': 'YYYY-MM-DD HH:mm:ss',
 }
 
 export const formatValues = (values: any, config: config) => {

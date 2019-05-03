@@ -235,6 +235,44 @@ export default {
       title: '单选多选',
       items: [
         {
+          label: 'CASCADER(级联)',
+          name: "cascader",
+          help: null,
+          editable: true,
+          undoable: true,
+          decorator: {
+            initialValue: false,
+            rules: null,
+          },
+          child: {
+            expandTrigger: "hover",
+            compType: 'CASCADER',
+            options: [{
+              value: 'zhejiang',
+              label: 'Zhejiang',
+              children: [{
+                value: 'hangzhou',
+                label: 'Hangzhou',
+                children: [{
+                  value: 'xihu',
+                  label: 'West Lake',
+                }],
+              }],
+            }, {
+              value: 'jiangsu',
+              label: 'Jiangsu',
+              children: [{
+                value: 'nanjing',
+                label: 'Nanjing',
+                children: [{
+                  value: 'zhonghuamen',
+                  label: 'Zhong Hua Men',
+                }],
+              }],
+            }],
+          },
+        },
+        {
           label: 'RADIO(单选按钮)',
           name: "radio",
           help: null,
@@ -453,6 +491,21 @@ export default {
     {
       title: '日期时间类',
       items: [
+        {
+          label: 'TIMEPICKER(时分秒)',
+          name: "timepicker",
+          help: null,
+          editable: true,
+          undoable: true,
+          decorator: {
+            initialValue: null,
+            rules: null,
+          },
+          child: {
+            compType: 'TIMEPICKER',
+            options: null,
+          },
+        },
         {
           label: 'DATE(年月日)',
           name: "date",

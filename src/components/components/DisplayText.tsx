@@ -1,4 +1,5 @@
 import React from 'react'
+import moment from 'moment'
 import { DisplayTextProps } from '../interface'
 import { isMainLess, handleLine } from '../utils'
 import Control from './Control'
@@ -25,6 +26,12 @@ export default class DisplayText extends React.PureComponent<DisplayTextProps> {
     }
     if (compType === 'MAP') {
       return <ViewMap {...this.props} />
+    }
+    if (compType === 'CASCADER') {
+      return <div>{value.join(" / ")}</div>
+    }
+    if (compType === 'TIMEPICKER') {
+      return <div>{moment(value).format('HH:mm:ss')}</div>
     }
   
     if (Array.isArray(value)) {
