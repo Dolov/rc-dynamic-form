@@ -1,5 +1,5 @@
 import React from 'react'
-import { Input, Radio, Checkbox, Select, TreeSelect, Slider, Switch, Rate, DatePicker, InputNumber, Cascader, TimePicker } from 'antd'
+import { Input, Radio, Checkbox, Select, TreeSelect, Slider, Switch, Rate, DatePicker, InputNumber, Cascader, TimePicker, Transfer } from 'antd'
 import { ControlProps } from '../interface'
 import IllegalFieldType from './IllegalFieldType'
 import SelectMap from './SelectMap'
@@ -10,7 +10,7 @@ const CheckboxGroup = Checkbox.Group
 const { MonthPicker, RangePicker, WeekPicker } = DatePicker
 
 const style = {width:'100%'}
-const defaultOptions: any = []
+const defaultArr: any = []
 
 const Components: any = {
 
@@ -174,7 +174,14 @@ const Components: any = {
 
   TIMEPICKER(props: ControlProps) {
     return <TimePicker style={style} {...props} />
-  }
+  },
+
+  TRANSFER(props: ControlProps) {
+    const { options, value, ...otherProps } = props
+    const targetKeys = Array.isArray(value) ? value: defaultArr
+    return <Transfer targetKeys={targetKeys} dataSource={options} {...otherProps} />
+  },
+  
 }
 
 

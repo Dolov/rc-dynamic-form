@@ -34,5 +34,6 @@ export default {
   'range': [40, 80],
   'switch': true,
   'rate': 3,
+  'transfer': ['vue', 'react'],
 
 }

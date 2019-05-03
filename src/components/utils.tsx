@@ -148,8 +148,8 @@ const getLabels = (values: Array<any>, options: Array<any>) => values.map(val =>
 
 const getLabel: any = (val: any, options: Array<any>) => {
   for (const option of options) {
-    const { label, title, value, children } = option
-    if (value === val) {
+    const { label, title, value, children, key } = option
+    if (val === value || val === key ) {
       return label || title || value
     }
     if (Array.isArray(children) && children.length > 0) {
