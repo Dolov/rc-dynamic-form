@@ -1,5 +1,5 @@
 import React from 'react'
-import { Input, Radio, Checkbox, Select, TreeSelect, Slider, Switch, Rate, DatePicker, InputNumber, Cascader, TimePicker, Transfer } from 'antd'
+import { Button, Icon, Input, Radio, Checkbox, Select, TreeSelect, Slider, Switch, Rate, DatePicker, InputNumber, Cascader, TimePicker, Transfer, Upload } from 'antd'
 import { ControlProps } from '../interface'
 import IllegalFieldType from './IllegalFieldType'
 import SelectMap from './SelectMap'
@@ -182,6 +182,15 @@ const Components: any = {
     return <Transfer targetKeys={targetKeys} dataSource={options} {...otherProps} />
   },
   
+  ENCLOSURE(props: ControlProps) {
+    return (
+      <Upload {...props} >
+        <Button>
+          <Icon type="upload" /> Click to Upload
+        </Button>
+      </Upload>
+    )
+  },
 }
 
 
