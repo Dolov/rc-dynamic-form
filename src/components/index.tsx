@@ -1,5 +1,5 @@
 import React from 'react'
-import { Form, Collapse, Button } from 'antd'
+import { Form, Collapse, Button, Icon, Popover } from 'antd'
 import { Provider } from './Content'
 import { getGroupTitle, getViewValues, getEditValues, formatValues, getInstance } from './utils'
 import { FormProps } from './interface'
@@ -83,6 +83,17 @@ class UserForm extends React.PureComponent<FormProps, any> {
               )})}
           </Collapse>
           {!isView&&(<div className="footer-bar">
+            <span className="error-message-wrapper">
+              <Popover
+                title='无法保存，这些字段包含错误'
+                content={<div>123</div>}
+                overlayClassName="error-popover"
+                trigger="click"
+              >
+                <Icon className="error-icon" type="exclamation-circle" theme="filled" />
+                {12}
+              </Popover>
+            </span>
             <Button onClick={this.onCancel}>取消</Button>
             <Button onClick={this.onSave} type="primary">保存</Button>
           </div>)}
