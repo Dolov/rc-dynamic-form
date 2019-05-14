@@ -48,11 +48,30 @@ class UserForm extends React.PureComponent<FormProps, any> {
     setFieldsValue(params)
   }
 
+  renderError() {
+    return (
+      <span className="error-message-wrapper">
+        <Popover
+          title='无法保存，这些字段包含错误'
+          content={<div>123</div>}
+          overlayClassName="error-popover"
+          trigger="click"
+        >
+          <Icon className="error-icon" type="exclamation-circle" theme="filled" />
+          {12}
+        </Popover>
+      </span>
+    )
+  }
+
   onSave = () => {
     const { onSave, config, form: {validateFieldsAndScroll}} = this.props
     if (!onSave || typeof onSave !== 'function') return 
     validateFieldsAndScroll((err: any, params: object) => {
-      if (err) return 
+      if (err) {
+        console.log(err, 'err')
+        return
+      } 
       onSave(formatValues(params, config))
     })
   }
@@ -83,17 +102,7 @@ class UserForm extends React.PureComponent<FormProps, any> {
               )})}
           </Collapse>
           {!isView&&(<div className="footer-bar">
-            <span className="error-message-wrapper">
-              <Popover
-                title='无法保存，这些字段包含错误'
-                content={<div>123</div>}
-                overlayClassName="error-popover"
-                trigger="click"
-              >
-                <Icon className="error-icon" type="exclamation-circle" theme="filled" />
-                {12}
-              </Popover>
-            </span>
+            {this.renderError()}
             <Button onClick={this.onCancel}>取消</Button>
             <Button onClick={this.onSave} type="primary">保存</Button>
           </div>)}
