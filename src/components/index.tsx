@@ -1,4 +1,5 @@
 import React from 'react'
+import { findDOMNode } from 'react-dom'
 import { Form, Collapse, Button, Icon, Popover } from 'antd'
 import { Provider } from './Content'
 import { getGroupTitle, getViewValues, getEditValues, formatValues, getInstance } from './utils'
@@ -48,17 +49,40 @@ class UserForm extends React.PureComponent<FormProps, any> {
     setFieldsValue(params)
   }
 
+  moveToErrorField = (name: string) => {
+    if (!this.formEle) return
+    const formDOM = findDOMNode(this.formEle)
+    if (!formDOM) return 
+    const labelNode = formDOM.querySelector(`label[for="${name}"]`)
+    if (!labelNode) return 
+    labelNode.scrollIntoView(true)
+  }
+
   renderError() {
+    const { form: {getFieldsError} } = this.props
+    const errors = getFieldsError()
+    const errorList = Object.keys(errors).filter(errorName => errors[errorName])
+    const { length } = errorList
+    if (length === 0) return null
     return (
       <span className="error-message-wrapper">
         <Popover
           title='无法保存，这些字段包含错误'
-          content={<div>123</div>}
+          content={(
+            <div>
+              {errorList.map(name => (
+                <div key={name} className="error" onClick={() => this.moveToErrorField(name)}>
+                  <div className="error-message">{errors[name][0]}</div>
+                  <div className="error-name">{name}</div>
+                </div>
+              ))}
+            </div>
+          )}
           overlayClassName="error-popover"
           trigger="click"
         >
           <Icon className="error-icon" type="exclamation-circle" theme="filled" />
-          {12}
+          {length}
         </Popover>
       </span>
     )
@@ -84,6 +108,8 @@ class UserForm extends React.PureComponent<FormProps, any> {
     }
   }
 
+  formEle: any = null
+
   render() {
     const { isView, config, collapseBordered } = this.props
     const groups = Array.isArray(config.groups) ? config.groups: []
@@ -91,7 +117,7 @@ class UserForm extends React.PureComponent<FormProps, any> {
     const defaultActiveKey = getGroupTitle(groups)
     return (
       <Provider value={{...this.props, setEditValue: this.setEditValue}}>
-        <Form layout={formLayout} className={clsPrefix}>
+        <Form layout={formLayout} className={clsPrefix} ref={ele => {this.formEle=ele}}>
           <Collapse bordered={collapseBordered} defaultActiveKey={defaultActiveKey}>
             {groups.map((group, index) => {
               const { title, items } = group

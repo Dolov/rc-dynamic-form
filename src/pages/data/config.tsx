@@ -32,7 +32,9 @@ export default {
           editable: true,
           decorator: {
             initialValue: 'TEXTAREA(initialValue)',
-            rules: null,
+            rules: [
+              {required: true, message: '必填'},
+            ],
           },
           child: {
             compType: 'TEXTAREA',

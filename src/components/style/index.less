@@ -133,6 +133,22 @@
 
 :global {
   .error-popover {
-    
+    .ant-popover-inner-content {
+      padding: 0;
+    }
+    .error {
+      padding: 6px 16px;
+      border-bottom: 1px solid #e8e8e8;
+      cursor: pointer;
+      &:last-child {
+        border-bottom: none;
+      }
+      &:hover {
+        background: #f0fdff;
+      }
+    }
+    .error-name {
+      color: rgba(0, 0, 0, .45);
+    }
   }
 }
