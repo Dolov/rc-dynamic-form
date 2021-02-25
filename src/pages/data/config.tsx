@@ -473,7 +473,7 @@ export default {
               },
               {
                 value: '03',
-                title: 'ClickPaaS 前端研发部负责人',
+                title: '前端研发部负责人',
                 children: [{
                   value: '03-01',
                   title: '阿翔',
